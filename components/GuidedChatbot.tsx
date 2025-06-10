@@ -47,7 +47,7 @@ const CHAT_FLOWS = {
     ]
   },
   about: {
-    message: "I'm a passionate data-driven designer with expertise in UX/UI design, product design, and AI solutions. Currently working as a UX/UI Designer at Presight.ai in Abu Dhabi, I specialize in creating user-centered designs that bridge the gap between complex AI technologies and intuitive user experiences. I have a unique international background with experience in Korea, France, and the UAE.",
+    message: "I am a designer with expertise in UX/UI design and product design, specializing in AI solutions and Human-Machine Interfaces (HMI).\n\nCurrently, I work as a UX/UI Designer at Presight.AI, an AI company under G42 in Abu Dhabi. My focus is on user-centered design, particularly leveraging dashboards for AI data visualization.\n\nMy diverse experiences in Korea, the Czech Republic, France, and the UAE have given me a unique international design background :)",
     options: [
       { id: "education", text: "Education background", action: "education" },
       { id: "philosophy", text: "Design philosophy", action: "philosophy" },
