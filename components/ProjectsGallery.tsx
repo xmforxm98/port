@@ -72,6 +72,24 @@ const mainProjects: ProjectData[] = [
       year: "2018",
       tags: ["Data Viz", "UI Design", "Analytics"],
           featured: false,
+        },
+        {
+          id: "creative-portfolio",
+          title: "PSA Integrated Vehicle Management & Smartwatch App",
+          description: "A futuristic driving experience with autonomous parking via smartwatch gesture control and comprehensive vehicle management.",
+          imageUrl: "https://raw.githubusercontent.com/xmforxm98/Images/main/C1.png",
+          year: "2020",
+          tags: ["Automotive", "IoT", "Smartwatch", "UX/UI Design"],
+          featured: true,
+        },
+        {
+          id: "smart-city-platform",
+          title: "Smart City Management Platform",
+          description: "An integrated platform for urban planning and smart city infrastructure management with real-time monitoring and analytics.",
+          imageUrl: "https://raw.githubusercontent.com/xmforxm98/Images/main/S1.png",
+          year: "2021",
+          tags: ["Smart City", "Platform Design", "Urban Planning", "IoT"],
+          featured: true,
         }
       ];
 

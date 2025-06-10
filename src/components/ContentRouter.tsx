@@ -13,6 +13,7 @@ interface ContentRouterProps {
   projectChatActive: boolean;
   selectedProject: ProjectData | null;
   onDiscussProject: (project: ProjectData) => void;
+  onCloseProjectChat?: () => void;
 }
 
 export const ContentRouter: React.FC<ContentRouterProps> = ({
@@ -20,6 +21,7 @@ export const ContentRouter: React.FC<ContentRouterProps> = ({
   projectChatActive,
   selectedProject,
   onDiscussProject,
+  onCloseProjectChat,
 }) => {
   const renderContent = () => {
     switch (selectedSection) {
@@ -33,7 +35,14 @@ export const ContentRouter: React.FC<ContentRouterProps> = ({
       case "about":
         return <AboutPage />;
       case "projects":
-        return <ProjectsPage onDiscussProject={onDiscussProject} />;
+        return (
+          <ProjectsPage 
+            onDiscussProject={onDiscussProject}
+            projectChatActive={projectChatActive}
+            selectedProject={selectedProject}
+            onCloseProjectChat={onCloseProjectChat}
+          />
+        );
       case "side-projects":
         return <SideProjectsPage />;
       case "blog":

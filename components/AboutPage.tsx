@@ -13,7 +13,9 @@ import {
   Globe,
   Mail,
   Phone,
-  Linkedin
+  Linkedin,
+  MessageCircle,
+  ChevronRight
 } from "lucide-react";
 
 const containerVariants = {
@@ -249,6 +251,67 @@ export function AboutPage() {
                 <h3 className="font-semibold">BMW Young Design Award, Winner</h3>
                 <p className="text-sm text-muted-foreground">BMW France Automobile Festival</p>
               </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Career Q&A Section */}
+        <motion.div variants={itemVariants} className="bg-card rounded-lg p-6 shadow-sm">
+          <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
+            <MessageCircle className="text-primary" size={24} />
+            Career Q&A
+          </h2>
+          <div className="space-y-6">
+            {/* Question 1 */}
+            <div className="p-4 bg-primary/5 rounded-lg">
+              <div className="flex items-start gap-3 mb-3">
+                <ChevronRight className="text-primary flex-shrink-0 mt-1" size={16} />
+                <h3 className="font-semibold text-primary">What motivates you in design?</h3>
+              </div>
+              <p className="text-muted-foreground ml-6 leading-relaxed">
+                I'm driven by the challenge of making complex technologies accessible and intuitive. 
+                Seeing users effortlessly navigate through AI-powered interfaces that I've designed gives me immense satisfaction. 
+                The intersection of data, human psychology, and visual design is where I find my passion.
+              </p>
+            </div>
+
+            {/* Question 2 */}
+            <div className="p-4 bg-primary/5 rounded-lg">
+              <div className="flex items-start gap-3 mb-3">
+                <ChevronRight className="text-primary flex-shrink-0 mt-1" size={16} />
+                <h3 className="font-semibold text-primary">How do you approach new challenges?</h3>
+              </div>
+              <p className="text-muted-foreground ml-6 leading-relaxed">
+                I start with thorough research and user empathy, then rapidly prototype and test solutions. 
+                My international experience has taught me to consider diverse cultural perspectives. 
+                I believe in failing fast, learning quickly, and iterating based on data and user feedback.
+              </p>
+            </div>
+
+            {/* Question 3 */}
+            <div className="p-4 bg-primary/5 rounded-lg">
+              <div className="flex items-start gap-3 mb-3">
+                <ChevronRight className="text-primary flex-shrink-0 mt-1" size={16} />
+                <h3 className="font-semibold text-primary">What's your career vision?</h3>
+              </div>
+              <p className="text-muted-foreground ml-6 leading-relaxed">
+                I aim to become a leading voice in AI-human interaction design. 
+                I want to contribute to making AI technologies more democratized and accessible globally. 
+                My goal is to bridge cultural and technological gaps through thoughtful design that respects both human needs and business objectives.
+              </p>
+            </div>
+
+            {/* Question 4 */}
+            <div className="p-4 bg-primary/5 rounded-lg">
+              <div className="flex items-start gap-3 mb-3">
+                <ChevronRight className="text-primary flex-shrink-0 mt-1" size={16} />
+                <h3 className="font-semibold text-primary">What makes you unique as a designer?</h3>
+              </div>
+              <p className="text-muted-foreground ml-6 leading-relaxed">
+                My unique combination of technical understanding, international perspective, and data-driven approach sets me apart. 
+                Having worked across Korea, France, and the UAE, I bring cultural sensitivity to design. 
+                My background in both AI product management and hands-on design allows me to see the bigger picture while crafting detailed user experiences.
+              </p>
             </div>
           </div>
         </motion.div>

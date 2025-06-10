@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
 import { useAuth } from "../components/auth/AuthContext";
 import { useProject, ProjectData } from "../components/ProjectContext";
 import { SplitViewLayout } from "../components/SplitViewLayout";
@@ -14,7 +13,7 @@ export default function App() {
   const { selectedProject, setSelectedProject } = useProject();
   const [selectedSection, setSelectedSection] = useState<string>("chat");
   const [projectChatActive, setProjectChatActive] = useState<boolean>(false);
-  const [isProjectViewerOpen, setIsProjectViewerOpen] = useState<boolean>(false);
+
 
   useEffect(() => {
     document.documentElement.classList.add('dark');
@@ -49,13 +48,10 @@ export default function App() {
 
   const handleStartProjectChat = (project: ProjectData) => {
     setSelectedProject(project);
-    setSelectedSection("chat");
     setProjectChatActive(true);
-    setIsProjectViewerOpen(true);
   };
 
-  const handleCloseProjectViewer = () => {
-    setIsProjectViewerOpen(false);
+  const handleCloseProjectChat = () => {
     setProjectChatActive(false);
     setSelectedProject(null);
   };
@@ -107,27 +103,19 @@ export default function App() {
 
           {/* Main Content */}
           <main className="relative z-10 flex flex-1 flex-col w-full h-full overflow-y-auto">
-            <AnimatePresence mode="wait">
-              <SplitViewLayout
-                leftPanel={
-                  <ContentRouter
-                    selectedSection={selectedSection}
-                    projectChatActive={projectChatActive}
-                    selectedProject={selectedProject}
-                    onDiscussProject={handleStartProjectChat}
-                  />
-                }
-                rightPanel={
-                  selectedProject && (
-                    <ProjectViewerPanel 
-                      project={selectedProject} 
-                      onClose={handleCloseProjectViewer} 
-                    />
-                  )
-                }
-                isRightPanelOpen={isProjectViewerOpen && !!selectedProject}
-              />
-            </AnimatePresence>
+            <SplitViewLayout
+              leftPanel={
+                <ContentRouter
+                  selectedSection={selectedSection}
+                  projectChatActive={projectChatActive}
+                  selectedProject={selectedProject}
+                  onDiscussProject={handleStartProjectChat}
+                  onCloseProjectChat={handleCloseProjectChat}
+                />
+              }
+              rightPanel={null}
+              isRightPanelOpen={false}
+            />
           </main>
         </div>
       </div>

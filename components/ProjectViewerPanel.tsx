@@ -12,9 +12,11 @@ import { ProjectData } from "./ProjectContext";
 interface ProjectViewerPanelProps {
   project: ProjectData;
   onClose: () => void;
+  onCloseChat?: () => void;
+  isChatActive?: boolean;
 }
 
-export function ProjectViewerPanel({ project, onClose }: ProjectViewerPanelProps) {
+export function ProjectViewerPanel({ project, onClose, onCloseChat, isChatActive }: ProjectViewerPanelProps) {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   // Animation variants
@@ -49,25 +51,37 @@ export function ProjectViewerPanel({ project, onClose }: ProjectViewerPanelProps
   return (
     <motion.div 
       className="flex flex-col h-full bg-background"
-      drag={isMobile ? "x" : false}
-      dragConstraints={{ left: 0, right: 0 }}
+      drag={isMobile ? "y" : false}
+      dragConstraints={{ top: 0, bottom: 0 }}
       dragElastic={0.2}
       onDragEnd={(event, info) => {
-        if (isMobile && info.offset.x > 100) {
+        if (isMobile && info.offset.y > 100) {
           onClose();
         }
       }}
     >
       <div className="p-4 border-b flex justify-between items-center">
         <h2 className="text-lg font-medium">Project Details</h2>
-        <Button 
-          variant="ghost" 
-          size="sm" 
-          onClick={onClose} 
-          className="h-8 w-8 p-0 rounded-full"
-        >
-          <X size={18} />
-        </Button>
+        <div className="flex gap-2">
+          {isChatActive && onCloseChat && (
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              onClick={onCloseChat} 
+              className="h-8 px-3 text-sm"
+            >
+              Close Chat
+            </Button>
+          )}
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            onClick={onClose} 
+            className="h-8 w-8 p-0 rounded-full"
+          >
+            <X size={18} />
+          </Button>
+        </div>
       </div>
       
       {/* Mobile drag indicator */}

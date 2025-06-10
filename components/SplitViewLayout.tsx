@@ -18,7 +18,8 @@ export function SplitViewLayout({
   // Animation variants
   const rightPanelVariants = {
     hidden: { 
-      x: "100%", 
+      x: isMobile ? 0 : "100%", 
+      y: isMobile ? "100%" : 0,
       opacity: 0,
       transition: { 
         type: "spring", 
@@ -28,6 +29,7 @@ export function SplitViewLayout({
     },
     visible: { 
       x: 0, 
+      y: 0,
       opacity: 1,
       transition: { 
         type: "spring", 
@@ -59,30 +61,28 @@ export function SplitViewLayout({
   if (isMobile) {
     return (
       <div className="relative h-full w-full overflow-hidden">
-        <motion.div
-          className="absolute inset-0 flex h-full w-full items-center justify-center"
-          initial={false}
-          animate={{ 
-            x: isRightPanelOpen ? "-100%" : "0%",
-            opacity: isRightPanelOpen ? 0 : 1
-          }}
-          transition={{ 
-            type: "spring", 
-            stiffness: 300, 
-            damping: 30 
-          }}
-        >
+        {/* Left panel (project) stays in place */}
+        <div className="absolute inset-0 flex h-full w-full items-center justify-center">
           {leftPanel}
-        </motion.div>
+        </div>
         
-        <motion.div
-          className="absolute inset-0 flex h-full w-full items-center justify-center"
-          initial="hidden"
-          animate={isRightPanelOpen ? "visible" : "hidden"}
-          variants={rightPanelVariants}
-        >
-          {rightPanel}
-        </motion.div>
+        {/* Right panel (chat) slides up from bottom */}
+        {isRightPanelOpen && (
+          <motion.div
+            className="absolute inset-0 flex h-full w-full items-center justify-center bg-background"
+            initial={{ y: "100%", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: "100%", opacity: 0 }}
+            transition={{ 
+              type: "spring", 
+              stiffness: 300, 
+              damping: 30 
+            }}
+            style={{ zIndex: 10 }}
+          >
+            {rightPanel}
+          </motion.div>
+        )}
       </div>
     );
   }

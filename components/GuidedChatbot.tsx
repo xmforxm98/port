@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Button } from "./ui/button";
-import { ScrollArea } from "./ui/scroll-area";
 import { Avatar } from "./ui/avatar";
 import { Card } from "./ui/card";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
@@ -35,7 +34,7 @@ export type ChatOption = {
 const CHAT_FLOWS = {
   welcome: {
     messages: [
-      "👋 안녕하세요! I'm YONGWOO KIM, a data-driven designer currently working at Presight.ai in Abu Dhabi.",
+      "👋 안녕하세요! I'm YONGWOO KIM, a UX/UI designer currently working at Presight.ai in Abu Dhabi.",
       "I specialize in AI solutions, UX/UI design, and bridging complex technologies with intuitive user experiences. How can I help you today?"
     ],
     options: [
@@ -52,32 +51,33 @@ const CHAT_FLOWS = {
       { id: "education", text: "Education background", action: "education" },
       { id: "philosophy", text: "Design philosophy", action: "philosophy" },
       { id: "skills", text: "Skills & expertise", action: "skills" },
+      { id: "experience", text: "Work experience", action: "experience" },
       { id: "back", text: "Back to main topics", action: "back_to_main" }
     ]
   },
   education: {
-    message: "I have a Master of Arts in Design from Strate École de Design in Paris, France (2017-2019) with a specialization in Mobile Design, and a Bachelor of Science & Technology from Seoul National University (2011-2017) in the Design Department. My education has given me a strong foundation in both technical and creative aspects of design.",
+    message: "I have a Master of Arts in Design from Strate École de Design in Paris, France (2017-2019) with a specialization in Mobility Design, and a Bachelor from Science & Technology of Seoul National University (2011-2017) in the Design Department. My education has given me a strong foundation in both technical and creative aspects of design.",
     options: [
       { id: "about", text: "More about you", action: "about" },
       { id: "back", text: "Back to main topics", action: "back_to_main" }
     ]
   },
   philosophy: {
-    message: "My design philosophy centers on being data-driven while maintaining human-centered principles. Having worked with AI technologies at Presight.ai and SmartMind, I believe in making complex technologies accessible through thoughtful design. I emphasize creating interfaces that users can intuitively navigate, regardless of the underlying complexity. Every design decision should be backed by data and user insights.",
+    message: "My design philosophy revolves around harmonizing a data-driven approach with human-centered principles.\n\nHaving worked with AI technologies at Presight.ai and SmartMind, I've come to believe in making complex technologies accessible through thoughtful design.\n\nI emphasize creating interfaces that users can intuitively navigate, regardless of the underlying complexity.\n\nI believe every design decision should be backed by data and user insights, and that we must rapidly execute, gather feedback, and iterate quickly to optimize both business objectives and user experience.",
     options: [
       { id: "about", text: "More about you", action: "about" },
       { id: "back", text: "Back to main topics", action: "back_to_main" }
     ]
   },
   skills: {
-    message: "My skill set includes:\n• UX/UI Design & User Research\n• AI Product Design & Solutions\n• Automotive HMI Design\n• Rapid Prototyping & Wireframing\n• Design Research & Project Management\n• Service Design & Motion Graphics\n• Data Analytics & Design Systems",
+    message: "My skill set includes:\n• Hand Drawing & Sketch\n• Digital Product Design & User Research\n• Mobile design with Flutter\n• Automotive HMI Design\n• Rapid Prototyping & Wireframing\n• Design Systems",
     options: [
       { id: "tools", text: "Tools you use", action: "tools" },
       { id: "back", text: "Back to main topics", action: "back_to_main" }
     ]
   },
   tools: {
-    message: "I'm proficient in design and development tools:\n• Design: Figma, Framer, Sketch, Photoshop, Illustrator\n• Prototyping: After Effects, Premiere, InVision\n• Analytics: Google Analytics, Power BI\n• 3D: Blender\n• Development: HTML/CSS, JavaScript, React, Java, Flutter\n\nThis diverse toolkit allows me to work seamlessly across the entire design-to-development pipeline.",
+    message: "I'm proficient in design and development tools:\n• Design: Figma, Framer, Sketch\n• Illustration: Photoshop, Illustrator\n• 3D: Blender\n• Development: HTML/CSS, JavaScript, React, Flutter\n\nThis diverse toolkit allows me to work seamlessly across the entire design-to-development pipeline.",
     options: [
       { id: "skills", text: "Back to skills", action: "skills" },
       { id: "back", text: "Back to main topics", action: "back_to_main" }
@@ -122,10 +122,11 @@ const CHAT_FLOWS = {
     ]
   },
   experience: {
-    message: "I have diverse international experience:\n• Presight.ai (2023-Present): UX/UI Designer in Abu Dhabi, UAE - AI Development\n• RadiKumari Inc: Product Designer in Seoul - Culture Activity App\n• SmartMind Inc (2020-2022): AI Product Designer & PM in Seoul\n• PSA Citroen Peugeot: HMI Design Intern in France\n\nI've also won prestigious awards including the BMW Young Design Award.",
+    message: "I have diverse international experience:\n• Presight.ai (2023-Present): UX/UI Designer in Abu Dhabi, UAE - AI Development\n• RadiKumari Inc: Product Designer in Seoul - Culture Activity App\n• SmartMind Inc (2020-2022): AI Product Designer & PM in Seoul\n• PSA Citroen Peugeot: Design Intern in France\n• Aufeer Designt: HMI Design Intern in Czech\n• Le coq Sportif Designt: Design Intern in Korea\n\nI've also won prestigious awards including the BMW Young Design Award.",
     options: [
       { id: "awards", text: "Awards & recognition", action: "awards" },
       { id: "process", text: "Design process", action: "process" },
+      { id: "about", text: "More about you", action: "about" },
       { id: "back", text: "Back to main topics", action: "back_to_main" }
     ]
   },
@@ -137,13 +138,13 @@ const CHAT_FLOWS = {
     ]
   },
   process: {
-    message: "My design process combines data-driven insights with user-centered principles:\n1. Research: User interviews, competitive analysis, data analytics\n2. Definition: Personas, journey mapping, problem framing\n3. Ideation: Sketching, concepting, collaborative workshops\n4. Prototyping: Wireframes to high-fidelity interactive prototypes\n5. Testing: Usability tests, A/B testing, feedback gathering\n6. Refinement: Iterative improvements based on data and user feedback\n7. Implementation: Developer handoff, design system documentation\n8. Measurement: Post-launch analytics and continuous optimization",
+    message: "My practical design process emphasizes speed and feedback, focusing on the business itself, not just the design.\n\n1. Problem Definition & Goal Setting: I start by identifying the problem, forming a hypothesis, and then setting clear success criteria.\n\n2. Rapid Solution Building: Next, I quickly develop a solution. This solution focuses on problem-solving, regardless of whether it's built on an app, web, or another platform.\n\n3. User Feedback Collection: After launching the solution, I actively collect user feedback. I evaluate the solution against the previously set success criteria, which can vary depending on the goal. For instance, the success metric could be purchase conversion rate, app downloads, or time spent in the app.\n\n4. Measurement & Iteration: Based on the collected data, I measure the solution's performance and continuously iterate for improvement.",
     options: [
       { id: "back", text: "Back to main topics", action: "back_to_main" }
     ]
   },
   contact: {
-    message: "Feel free to reach out to discuss projects or opportunities:\n• Email: yongwoo.kim@strate.design\n• Phone: +82-10-2027-1169\n• LinkedIn: linkedin.com/in/yongwoo-kim\n• Currently based in Abu Dhabi, UAE\n\nI'm fluent in Korean (native) and English (professional level).",
+    message: "Feel free to reach out to discuss projects or opportunities:\n• Email: yongwoo.kim@strate.design\n• Phone: +82-10-2027-1169\n• LinkedIn: linkedin.com/in/yongwoo-kim\n• Currently based in Abu Dhabi, UAE\n\nI'm fluent in Korean (native), French (beginning) and English (professional level).",
     options: [
       { id: "back", text: "Back to main topics", action: "back_to_main" }
     ]
@@ -235,9 +236,10 @@ const PROJECT_FLOWS = (project: ProjectData) => ({
 interface GuidedChatbotProps {
   selectedOption: string | null;
   projectContext?: ProjectData;
+  isSidePanel?: boolean;
 }
 
-export function GuidedChatbot({ selectedOption, projectContext }: GuidedChatbotProps) {
+export function GuidedChatbot({ selectedOption, projectContext, isSidePanel = false }: GuidedChatbotProps) {
   const [messages, setMessages] = useState<MessageType[]>([]);
   const [currentOptions, setCurrentOptions] = useState<ChatOption[]>([]);
   const [isBotTyping, setIsBotTyping] = useState(false);
@@ -246,11 +248,37 @@ export function GuidedChatbot({ selectedOption, projectContext }: GuidedChatbotP
   const timeoutIds = useRef<NodeJS.Timeout[]>([]);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    // Only scroll within the chat container, not the entire page
+    if (messagesEndRef.current) {
+      const container = messagesEndRef.current.closest('.chat-container') || 
+                       messagesEndRef.current.closest('.overflow-y-auto');
+      if (container) {
+        // Use smooth scrolling to the bottom
+        container.scrollTo({
+          top: container.scrollHeight,
+          behavior: 'smooth'
+        });
+      } else {
+        // Fallback: scroll the messagesEndRef into view
+        messagesEndRef.current.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'end'
+        });
+      }
+    }
   };
 
   useEffect(() => {
-    scrollToBottom();
+    // Use requestAnimationFrame to ensure DOM has been updated
+    const scrollTimer = requestAnimationFrame(() => {
+      setTimeout(() => {
+        scrollToBottom();
+      }, 150);
+    });
+    
+    return () => {
+      cancelAnimationFrame(scrollTimer);
+    };
   }, [messages, isBotTyping]);
 
   // Effect to clear timeouts on unmount to prevent memory leaks and bugs in StrictMode
@@ -307,12 +335,21 @@ export function GuidedChatbot({ selectedOption, projectContext }: GuidedChatbotP
           }
         ]);
         
+        // Scroll to bottom after adding each message
+        setTimeout(() => {
+          scrollToBottom();
+        }, 50);
+        
         // If this is the last message, stop typing and show options
         if (index === texts.length - 1) {
           setIsBotTyping(false);
           if (options) {
             setCurrentOptions(options);
           }
+          // Final scroll after options are set
+          setTimeout(() => {
+            scrollToBottom();
+          }, 100);
         }
       }, delay);
       timeoutIds.current.push(timerId);
@@ -331,6 +368,11 @@ export function GuidedChatbot({ selectedOption, projectContext }: GuidedChatbotP
     };
     setMessages(prev => [...prev, userMessage]);
     setCurrentOptions([]);
+
+    // Scroll to bottom after user message
+    setTimeout(() => {
+      scrollToBottom();
+    }, 50);
 
     // Trigger the next part of the flow
     let nextFlowAction = option.action;
@@ -387,10 +429,10 @@ export function GuidedChatbot({ selectedOption, projectContext }: GuidedChatbotP
   };
 
   return (
-    <div className="flex flex-col h-full items-center">
-      <div className="flex flex-col h-full w-full max-w-4xl p-4">
-        <ScrollArea className="flex-1 pr-4">
-          <div className="space-y-6">
+    <div className={`flex flex-col h-full overflow-hidden ${!isSidePanel ? 'items-center' : ''}`}>
+      <div className={`flex flex-col h-full w-full p-4 ${!isSidePanel ? 'max-w-4xl' : ''}`}>
+        <div className="flex-1 overflow-y-auto" style={{ maxHeight: '100%' }}>
+          <div className={`space-y-6 ${!isSidePanel ? '' : 'pr-2'}`}>
             <AnimatePresence>
               {messages.map((msg) => (
                 <motion.div
@@ -433,7 +475,7 @@ export function GuidedChatbot({ selectedOption, projectContext }: GuidedChatbotP
             {isBotTyping && <BotTypingIndicator />}
             <div ref={messagesEndRef} />
           </div>
-        </ScrollArea>
+        </div>
       </div>
     </div>
   );
