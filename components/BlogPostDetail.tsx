@@ -13,8 +13,6 @@ interface BlogPost {
   category: string;
   date: string;
   readTime: string;
-  likes: number;
-  comments: number;
   featured: boolean;
   content?: string;
 }
@@ -148,6 +146,20 @@ If this sounds like you, we'd love to hear from you. Apply through our careers p
                   <h2 key={index} className="text-2xl font-bold mt-8 mb-4">
                     {paragraph.replace('## ', '')}
                   </h2>
+                );
+              }
+              if (paragraph.startsWith('### ')) {
+                return (
+                  <h3 key={index} className="text-xl font-semibold mt-6 mb-3">
+                    • {paragraph.replace('### ', '')}
+                  </h3>
+                );
+              }
+              if (paragraph.startsWith('#### ')) {
+                return (
+                  <h4 key={index} className="text-lg font-medium mt-4 mb-2">
+                    • {paragraph.replace('#### ', '')}
+                  </h4>
                 );
               }
               if (paragraph.startsWith('• ')) {

@@ -105,7 +105,7 @@ export function AboutPage() {
               <p className="text-primary font-medium">Presight.ai</p>
               <p className="text-sm text-muted-foreground flex items-center gap-1 mb-2">
                 <Calendar size={14} />
-                2023 - Present • Dubai, UAE
+                2023 - Present • Abu Dhabi, UAE
               </p>
               <p className="text-muted-foreground">AI Development and user experience design</p>
             </div>

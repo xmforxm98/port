@@ -35,7 +35,7 @@ export type ChatOption = {
 const CHAT_FLOWS = {
   welcome: {
     messages: [
-      "👋 안녕하세요! I'm YONGWOO KIM, a data-driven designer currently working at Presight.ai in Dubai.",
+      "👋 안녕하세요! I'm YONGWOO KIM, a data-driven designer currently working at Presight.ai in Abu Dhabi.",
       "I specialize in AI solutions, UX/UI design, and bridging complex technologies with intuitive user experiences. How can I help you today?"
     ],
     options: [
@@ -47,7 +47,7 @@ const CHAT_FLOWS = {
     ]
   },
   about: {
-    message: "I'm a passionate data-driven designer with expertise in UX/UI design, product design, and AI solutions. Currently working as a UX/UI Designer at Presight.ai in Dubai, I specialize in creating user-centered designs that bridge the gap between complex AI technologies and intuitive user experiences. I have a unique international background with experience in Korea, France, and the UAE.",
+    message: "I'm a passionate data-driven designer with expertise in UX/UI design, product design, and AI solutions. Currently working as a UX/UI Designer at Presight.ai in Abu Dhabi, I specialize in creating user-centered designs that bridge the gap between complex AI technologies and intuitive user experiences. I have a unique international background with experience in Korea, France, and the UAE.",
     options: [
       { id: "education", text: "Education background", action: "education" },
       { id: "philosophy", text: "Design philosophy", action: "philosophy" },
@@ -94,7 +94,7 @@ const CHAT_FLOWS = {
     ]
   },
   ai_projects: {
-    message: "My AI solutions projects include:\n• Presight.ai: Current work on AI development and UX design in Dubai\n• SmartMind Inc: AI Product Designer & PM (2020-2022) developing AI solutions\n• Data-driven interfaces that make complex AI accessible to users\n• Machine learning model visualization and interaction design",
+    message: "My AI solutions projects include:\n• Presight.ai: Current work on AI development and UX design in Abu Dhabi\n• SmartMind Inc: AI Product Designer & PM (2020-2022) developing AI solutions\n• Data-driven interfaces that make complex AI accessible to users\n• Machine learning model visualization and interaction design",
     options: [
       { id: "projects", text: "Other project types", action: "projects" },
       { id: "back", text: "Back to main topics", action: "back_to_main" }
@@ -122,7 +122,7 @@ const CHAT_FLOWS = {
     ]
   },
   experience: {
-    message: "I have diverse international experience:\n• Presight.ai (2023-Present): UX/UI Designer in Dubai, UAE - AI Development\n• RadiKumari Inc: Product Designer in Seoul - Culture Activity App\n• SmartMind Inc (2020-2022): AI Product Designer & PM in Seoul\n• PSA Citroen Peugeot: HMI Design Intern in France\n\nI've also won prestigious awards including the BMW Young Design Award.",
+    message: "I have diverse international experience:\n• Presight.ai (2023-Present): UX/UI Designer in Abu Dhabi, UAE - AI Development\n• RadiKumari Inc: Product Designer in Seoul - Culture Activity App\n• SmartMind Inc (2020-2022): AI Product Designer & PM in Seoul\n• PSA Citroen Peugeot: HMI Design Intern in France\n\nI've also won prestigious awards including the BMW Young Design Award.",
     options: [
       { id: "awards", text: "Awards & recognition", action: "awards" },
       { id: "process", text: "Design process", action: "process" },
@@ -143,7 +143,7 @@ const CHAT_FLOWS = {
     ]
   },
   contact: {
-    message: "Feel free to reach out to discuss projects or opportunities:\n• Email: yongwoo.kim@strate.design\n• Phone: +82-10-2027-1169\n• LinkedIn: linkedin.com/in/yongwoo-kim\n• Currently based in Dubai, UAE\n\nI'm fluent in Korean (native) and English (professional level).",
+    message: "Feel free to reach out to discuss projects or opportunities:\n• Email: yongwoo.kim@strate.design\n• Phone: +82-10-2027-1169\n• LinkedIn: linkedin.com/in/yongwoo-kim\n• Currently based in Abu Dhabi, UAE\n\nI'm fluent in Korean (native) and English (professional level).",
     options: [
       { id: "back", text: "Back to main topics", action: "back_to_main" }
     ]
