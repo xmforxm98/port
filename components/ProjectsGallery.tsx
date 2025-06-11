@@ -90,6 +90,15 @@ const mainProjects: ProjectData[] = [
           year: "2021",
           tags: ["Smart City", "Platform Design", "Urban Planning", "IoT"],
           featured: true,
+        },
+        {
+          id: "made-project",
+          title: "M.A.D.E. Project: Lead Designer & PM Role",
+          description: "A marketplace platform connecting marketers and advertisers through competition-based talent discovery and digital advertising market innovation.",
+          imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          year: "2022",
+          tags: ["Lead Design", "Product Management", "Digital Marketing", "UX Research"],
+          featured: true,
         }
       ];
 

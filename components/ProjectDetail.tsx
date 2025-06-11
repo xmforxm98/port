@@ -133,28 +133,28 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
   const getProjectContent = () => {
     if (project.id === "creative-portfolio") {
       return `
-Stepping into the era of smart mobility, the PSA Integrated Vehicle Management Application offers drivers an innovative experience. This app goes beyond simply controlling a vehicle, showcasing forward-thinking solutions like activating the autonomous parking feature through gesture control linked to a smartwatch app.
+PSA Integrated Vehicle Management and Smartwatch App: Proposing Next-Generation Mobility Experience
+Keywords: Smartwatch Interaction, Autonomous Driving Interaction, HMI
 
 ## Challenge
 
-At the time, existing automotive applications often lacked strong aesthetic appeal and intuitive user experiences. Furthermore, PSA was actively preparing for the integration of autonomous driving features, projected to be widely adopted in 3-5 years. The challenge was to design a UX/UI that not only delivered a superior aesthetic and user experience but also seamlessly integrated the complex autonomous parking function via an innovative smartwatch interface, anticipating future advancements in self-driving technology.
+Existing vehicle management applications suffered from an unintuitive interface and complex feature accessibility, leading to very low driver utilization. Furthermore, future autonomous driving features would necessitate complex operations and extensive information delivery. The current legacy UI/UX posed a significant risk of confusing users, highlighting the need for a new user experience. My focus was on solving these issues and proactively proposing an innovative user experience for the new era of mobility.
 
-## Solution
+## Solution and My Role
 
-I adopted a user-centric design approach, seamlessly integrating the vehicle management app with the smartwatch app.
+As an intern designer, I proposed a next-generation interaction design and a smartwatch integration experience for the PSA vehicle management app. My approach was rooted in user-centered design methodologies, aiming to find UX/UI solutions optimized for a future mobility environment.
 
-### Autonomous Parking via Smartwatch Gesture Control
-Users can launch the smartwatch app and then use a specific gesture to easily command the vehicle's autonomous parking feature. This ensures both convenience and safety when the driver is controlling parking from outside the vehicle.
+### Proposing Intuitive Autonomous Parking via Smartwatch Gesture Control
+Through user research, I identified driver pain points and safety needs when controlling parking from outside the vehicle.
+Based on this, I leveraged interaction design and concept prototyping to propose an innovative method: drivers could activate the vehicle's autonomous parking function with simple gesture controls via the smartwatch app. This significantly reduced complex operational burdens for drivers, prioritizing convenience and safety.
 
-### Intuitive Vehicle Management Dashboard
-The main vehicle management app provides a dashboard that allows users to quickly grasp key information such as vehicle status, fuel levels, and driving history. Additionally, basic remote control functions like locking/unlocking the vehicle and controlling the air conditioning are implemented with an intuitive UI.
+### Proposing Future-Oriented Vehicle Management Dashboard and Remote Control UI Concepts
+For the main vehicle management app, I designed a dashboard concept that allowed for visually clear identification of key information like vehicle status, fuel levels, and driving history.
+Basic remote control functions, such as locking/unlocking the vehicle and controlling the air conditioning, were also proposed with an intuitive UI concept to maximize usability.
 
-### User-Customized Settings
-To provide a personalized experience, drivers can customize app interface, notification settings, and gesture recognition sensitivity according to their preferences.
+## Outcome
 
-## Impact
-
-This integrated app received highly positive evaluations for its innovative approach and forward-thinking design. The seamless smartwatch integration and intuitive gesture control for autonomous parking were particularly lauded, demonstrating a clear vision for the future of vehicle interaction. This project successfully showcased how to enhance driver convenience and vehicle management efficiency while laying the groundwork for upcoming autonomous features.
+Despite being a concept design, this project garnered a highly positive internal response due to its innovative approach and future-oriented user experience proposal. The idea of gesture control via smartwatch integration, in particular, received high praise for demonstrating the potential for a new kind of vehicle interaction experience for drivers. This project was a valuable opportunity for me to effectively showcase my ability to understand complex problems and propose innovative, user-centered design solutions.
 
 ## Key Features
 
@@ -198,6 +198,86 @@ The Smart City Management Platform has significantly improved urban operational 
 • **Multi-department Access**: Enables different city departments to access relevant data through role-based permissions
 • **Emergency Response Tools**: Rapid alert systems and coordination tools for emergency situations
 • **Performance Metrics**: Comprehensive KPI tracking for measuring city service effectiveness`;
+    } else if (project.id === "made-project") {
+      return `
+M.A.D.E. Project: Lead Designer Delivering User-Centered Solutions and Business Performance (Challenge and Learning-Focused)
+
+The M.A.D.E. project was an attempt to directly connect marketers and advertisers, discover top talent through competition, and innovate the digital advertising market. In this project, I served as the lead designer overseeing the overall user experience of the service, while simultaneously taking on a PM role, focusing on business development and initial performance creation.
+
+## Challenge
+
+At the time, the digital advertising market had the following clear problems:
+
+**Inefficient Marketer-Advertiser Matching**: Advertisers struggled to find capable marketers, and talented marketers had difficulty getting opportunities to showcase their potential.
+
+**Low Campaign Performance**: Due to opaque processes and lack of performance-based reward systems, advertising campaigns often showed poor ROI (Return on Investment).
+
+**Absence of Data-Driven Decision Making**: There was no sophisticated system to objectively evaluate marketers' actual performance and find optimal matches.
+
+The M.A.D.E. project aimed to solve these problems and build a new ecosystem that would drive high-performance campaigns through competition and rewards.
+
+## My Role and Solution
+
+As lead designer, I oversaw the overall user experience (UX) of the service, while also taking on a PM role focusing on creating business performance.
+
+### User Research-Centered Product Design Leadership (Lead Designer Role)
+
+**Leading Core User Research**: I directly designed and executed user research to deeply understand the needs and pain points of potential users (advertisers, marketers). This helped derive the service's core value proposition and feature direction.
+
+**Presenting Product Design Vision**: Collaborating with one designer, I presented the overall UX/UI direction and core interaction vision for the M.A.D.E. project. Rather than creating specific design deliverables, I focused on clearly defining the user journey and core flows, providing design guidelines that would enable the designer to work efficiently.
+
+**Attempting Data-Based Matching Algorithm Application**: I attempted to apply data science techniques similar to algorithms used in index funds for marketer performance evaluation and optimal matching. This was an important process to provide users with the best matching experience.
+
+### Initial Business Development and Performance Creation (PM Role)
+
+**Direct Advertiser Acquisition and Sales Leadership**: Delegating specific schedule management to another PM, I directly acquired 3 advertisers and continuously communicated with them to convey the value of the M.A.D.E. project.
+
+**Securing Ad Spend and Live Experiments**: Through the acquired advertisers, I secured approximately 50 million KRW in ad spend to conduct live experiments through actual advertising campaign operations. This allowed us to verify the service's marketability and core hypotheses.
+
+**Rapid Reflection of Product User Feedback**: I led user-centered rapid iterations by directly meeting with advertiser and marketer users to quickly collect in-depth feedback and reflect it in product improvement directions.
+
+## Key Achievements and Learning
+
+Although the M.A.D.E. project ultimately did not achieve the expected results, it provided the following visible achievements and valuable learning experiences as both lead designer and PM:
+
+### Enhanced User Research-Based Product Direction Capability
+Through in-depth user research, I significantly strengthened my capability as a lead designer to identify fundamental service problems and present strategic design directions to solve them.
+
+### Actual Business Performance Creation and Market Validation
+I created concrete initial business performance by acquiring 3 advertisers and executing 50 million KRW in ad spend. This was an important experience that went beyond simply presenting ideas to verify product value in the actual market and confirm revenue model possibilities.
+
+### Data-Based Thinking and Experiment Leadership
+Through algorithm application attempts, I directly experienced how data affects user experience and business performance. Additionally, through live experiments with actual users, I improved my data-based experiment leadership capabilities by verifying hypotheses and quickly collecting feedback to improve products.
+
+### Complex Problem Solving and Leadership Experience
+Combining design leadership and PM roles, I developed complex problem-solving abilities spanning product strategy formulation, design direction presentation, business development, user relationship building, and technical challenges. In particular, I demonstrated leadership in successfully leading projects through smooth communication and collaboration with external stakeholders.
+
+## Challenges and Valuable Learning Through Difficulties
+
+Despite the initial idea's potential, this project had limitations in final performance creation due to the following unexpected external and internal factors:
+
+### Limitations of Complex Marketing
+Due to industry characteristics where marketers mainly generate revenue through search advertising or SEO optimization on digital advertising platforms (Meta, Google, etc.), there were limitations in comprehensively implementing various complex marketing strategies within our platform.
+
+### Constraints as 3rd Party
+Due to the industry structure where marketing commissions are added to campaign budgets and 3rd party accessibility issues to individual advertising accounts, there were difficulties in budget distribution and efficient campaign management.
+
+### Unexpected Legal Issues
+We faced unforeseen legal and accounting limitations in the structure of making payments to individual marketers.
+
+### Expected ROAS (Return on Ad Spend) Shortfall
+Although we continuously worked to solve these structural problems, ultimately not meeting our expected ROAS significantly affected the project's sustainability.
+
+This project provided me with valuable experience in leading user-centered design, creating actual business performance, and rapidly learning and growing in challenging situations. Although it did not achieve perfect success, the process of deeply understanding these structural constraints and market characteristics and learning through failure will greatly contribute to solving complex problems and creating substantial value in any future environment.
+
+## Key Features
+
+• **Competition-Based Talent Discovery**: Platform enabling marketers to showcase their skills through competitive campaigns
+• **Data-Driven Matching Algorithm**: Advanced matching system pairing advertisers with optimal marketers based on performance metrics
+• **Performance-Based Rewards**: Transparent compensation structure incentivizing high-quality campaign results
+• **Real-Time Campaign Monitoring**: Comprehensive dashboard for tracking campaign performance and ROI
+• **User Research Integration**: Deep user insights driving platform development and feature prioritization
+• **Rapid Iteration Framework**: Agile approach enabling quick response to user feedback and market changes`;
     }
     
     return `
