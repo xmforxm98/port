@@ -6,7 +6,7 @@ import { Badge } from "./ui/badge";
 import { Card } from "./ui/card";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ProjectData } from "./ProjectContext";
-import { GuidedChatbot } from "./GuidedChatbot";
+import { ProjectChatbot } from "../src/components/ProjectChatbot";
 import { useMediaQuery } from "./ui/use-mobile";
 
 interface ProjectDetailProps {
@@ -635,11 +635,7 @@ This project reinforced the importance of continuous user feedback throughout th
               {/* Chat content */}
               <div className="flex-1 overflow-hidden">
                 <div className="h-full overflow-y-auto chat-container" style={{ maxHeight: '100%' }}>
-                  <GuidedChatbot 
-                    selectedOption="project" 
-                    projectContext={project}
-                    isSidePanel={true}
-                  />
+                  <ProjectChatbot project={project} />
                 </div>
               </div>
             </div>

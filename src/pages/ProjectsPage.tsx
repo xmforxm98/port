@@ -8,9 +8,10 @@ interface ProjectsPageProps {
   projectChatActive?: boolean;
   selectedProject?: ProjectData | null;
   onCloseProjectChat?: () => void;
+  isSideProjects: boolean;
 }
 
-export const ProjectsPage: React.FC<ProjectsPageProps> = () => {
+export const ProjectsPage: React.FC<ProjectsPageProps> = ({ isSideProjects }) => {
   const [viewingProject, setViewingProject] = useState<ProjectData | null>(null);
 
   const handleViewProject = (project: ProjectData) => {
@@ -34,7 +35,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = () => {
   // 프로젝트 갤러리
   return (
     <ProjectsGallery 
-      isSideProjects={false} 
+      isSideProjects={isSideProjects} 
       onDiscussProject={handleViewProject}
     />
   );

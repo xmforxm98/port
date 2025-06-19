@@ -1,14 +1,6 @@
-export interface SideProject {
-  id: string;
-  title: string;
-  description: string;
-  imageUrl: string;
-  images: string[];
-  link: string;
-  image: string; // For compatibility with InfiniteMenu
-}
+import { ProjectData } from "@/types";
 
-export const sideProjects: SideProject[] = [
+export const sideProjects: ProjectData[] = [
   {
     id: "Renault",
     title: "Renault I-A Collaboration",
@@ -20,9 +12,9 @@ export const sideProjects: SideProject[] = [
       "https://raw.githubusercontent.com/xmforxm98/Images/main/renualt2.png",   
       "https://raw.githubusercontent.com/xmforxm98/Images/main/renualt7.png", 
       "https://raw.githubusercontent.com/xmforxm98/Images/main/renualt8.png",
-
     ],
-    link: "#"
+    tags: ["Automotive", "Design", "Concept"],
+    year: "2019"
   },
   {
     id: "Lecoq",
@@ -36,7 +28,8 @@ export const sideProjects: SideProject[] = [
       "https://raw.githubusercontent.com/xmforxm98/Images/main/lecoq2.png",
       "https://raw.githubusercontent.com/xmforxm98/Images/main/lecoq1.png",
     ],
-    link: "#"
+    tags: ["Product Design", "Concept"],
+    year: "2018"
   },
   {
     id: "Citroen",
@@ -52,7 +45,8 @@ export const sideProjects: SideProject[] = [
      "https://raw.githubusercontent.com/xmforxm98/Images/main/citroen3.png",
      "https://raw.githubusercontent.com/xmforxm98/Images/main/citroen2.png",
     ],
-    link: "#"
+    tags: ["Automotive", "UX", "Concept"],
+    year: "2019"
   },
   {
     id: "Trensdev",
@@ -76,7 +70,8 @@ export const sideProjects: SideProject[] = [
      "https://raw.githubusercontent.com/xmforxm98/Images/main/133.jpg",
      "https://raw.githubusercontent.com/xmforxm98/Images/main/15.jpg",
     ],
-    link: "#"
+    tags: ["Illustration", "Storytelling"],
+    year: "2020"
   },
   {
     id: "citroen11",
@@ -87,6 +82,7 @@ export const sideProjects: SideProject[] = [
       "https://raw.githubusercontent.com/xmforxm98/Images/main/G1.png",
       "https://raw.githubusercontent.com/xmforxm98/Images/main/G2.png",
     ],
-    link: "#"
+    tags: ["IoT", "UX", "Smartwatch"],
+    year: "2019"
   },
-].map(p => ({...p, image: p.imageUrl})); 
+]; 

@@ -1,72 +1,56 @@
-import React from "react";
-import { PageTransition } from "../../components/PageTransition";
-import { ChatPage } from "../pages/ChatPage";
-import { AboutPage } from "../../components/AboutPage";
-import { ProjectsPage } from "../pages/ProjectsPage";
-import { SideProjectsPage } from "../pages/SideProjectsPage";
-import { BlogPage } from "../../components/BlogPage";
-import { ProfileWrapper } from "../../components/auth/ProfileWrapper";
-import { ProjectData } from "../../components/ProjectContext";
+import React from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { AboutPage } from '../../components/AboutPage';
+import { BlogPage } from '../../components/BlogPage';
+import { ProjectsPage } from '@/pages/ProjectsPage';
+import { SideProjectsPage } from '@/pages/SideProjectsPage';
+import { ChatPage } from '@/pages/ChatPage';
 
 interface ContentRouterProps {
   selectedSection: string;
-  projectChatActive: boolean;
-  selectedProject: ProjectData | null;
-  onDiscussProject: (project: ProjectData) => void;
-  onCloseProjectChat?: () => void;
 }
 
-export const ContentRouter: React.FC<ContentRouterProps> = ({
-  selectedSection,
-  projectChatActive,
-  selectedProject,
-  onDiscussProject,
-  onCloseProjectChat,
-}) => {
-  const renderContent = () => {
-    switch (selectedSection) {
-      case "chat":
-        return (
-          <ChatPage
-            selectedOption={projectChatActive && selectedProject ? "project" : "new"}
-            projectContext={projectChatActive && selectedProject ? selectedProject : undefined}
-          />
-        );
-      case "about":
-        return <AboutPage />;
-      case "projects":
-        return (
-          <ProjectsPage 
-            onDiscussProject={onDiscussProject}
-            projectChatActive={projectChatActive}
-            selectedProject={selectedProject}
-            onCloseProjectChat={onCloseProjectChat}
-          />
-        );
-      case "side-projects":
-        return <SideProjectsPage />;
-      case "blog":
-        return <BlogPage />;
-      case "profile":
-        return <ProfileWrapper />;
-      default:
-        if (selectedSection.startsWith("recent-")) {
-          return <ChatPage selectedOption={selectedSection} />;
-        }
-        return <ChatPage selectedOption="new" />;
-    }
-  };
+const pageVariants = {
+  initial: { opacity: 0, y: -20, transition: { duration: 0.3 } },
+  in: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+  exit: { opacity: 0, y: -20, transition: { duration: 0.3 } },
+};
 
-  const getSectionKey = () => {
-    if (selectedSection === "chat" && projectChatActive && selectedProject) {
-      return `chat-project-${selectedProject.id}`;
-    }
-    return selectedSection;
-  };
+export function ContentRouter({ selectedSection }: ContentRouterProps) {
+  let content;
+
+  switch (selectedSection) {
+    case 'about':
+      content = <AboutPage />;
+      break;
+    case 'projects':
+      content = <ProjectsPage isSideProjects={false} />; 
+      break;
+    case 'side-projects':
+      content = <SideProjectsPage />;
+      break;
+    case 'blog':
+      content = <BlogPage />;
+      break;
+    case 'chat':
+      content = <ChatPage />;
+      break;
+    default:
+      content = <AboutPage />;
+  }
 
   return (
-    <PageTransition sectionKey={getSectionKey()}>
-      {renderContent()}
-    </PageTransition>
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={selectedSection}
+        initial="initial"
+        animate="in"
+        exit="exit"
+        variants={pageVariants}
+        className="w-full h-full"
+      >
+        {content}
+      </motion.div>
+    </AnimatePresence>
   );
 }; 

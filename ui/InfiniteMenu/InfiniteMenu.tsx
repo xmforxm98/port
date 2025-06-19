@@ -1,7 +1,6 @@
 import { FC, useRef, useState, useEffect, MutableRefObject } from "react";
 import * as React from 'react';
 import { mat4, quat, vec2, vec3 } from "gl-matrix";
-import { Carousel } from "../../components/ui/carousel";
 import "./InfiniteMenu.css";
 
 // -------- Shader Sources --------
@@ -1288,7 +1287,7 @@ const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [] }) => {
   ) as MutableRefObject<HTMLCanvasElement | null>;
   const [activeItem, setActiveItem] = useState<MenuItem | null>(null);
   const [isMoving, setIsMoving] = useState<boolean>(false);
-  const [showCarousel, setShowCarousel] = useState<boolean>(false);
+
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -1327,13 +1326,7 @@ const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [] }) => {
   const handleButtonClick = () => {
     if (!activeItem) return;
     
-    // If the item has images, show carousel
-    if (activeItem.images && activeItem.images.length > 0) {
-      setShowCarousel(true);
-      return;
-    }
-    
-    // Otherwise, open the link as before
+    // Open the link
     if (activeItem.link) {
       if (activeItem.link.startsWith("http")) {
         window.open(activeItem.link, "_blank");
@@ -1342,10 +1335,6 @@ const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [] }) => {
         console.log("Internal route:", activeItem.link);
       }
     }
-  };
-
-  const handleCloseCarousel = () => {
-    setShowCarousel(false);
   };
 
   return (
@@ -1371,15 +1360,7 @@ const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [] }) => {
         </>
       )}
 
-      {/* Carousel Component */}
-      {activeItem && activeItem.images && (
-        <Carousel
-          images={activeItem.images}
-          title={activeItem.title}
-          isOpen={showCarousel}
-          onClose={handleCloseCarousel}
-        />
-      )}
+
     </div>
   );
 };
