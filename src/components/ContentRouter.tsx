@@ -19,7 +19,7 @@ const pageVariants = {
 export function ContentRouter({ selectedSection }: ContentRouterProps) {
   let content;
 
-  switch (selectedSection) {
+    switch (selectedSection) {
     case 'about':
       content = <AboutPage />;
       break;

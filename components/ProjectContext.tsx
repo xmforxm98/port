@@ -17,15 +17,18 @@ export interface ProjectData {
 interface ProjectContextType {
   selectedProject: ProjectData | null;
   setSelectedProject: (project: ProjectData | null) => void;
+  shouldOpenChat: boolean;
+  setShouldOpenChat: (shouldOpen: boolean) => void;
 }
 
 const ProjectContext = createContext<ProjectContextType | undefined>(undefined);
 
 export function ProjectProvider({ children }: { children: ReactNode }) {
   const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
+  const [shouldOpenChat, setShouldOpenChat] = useState(false);
 
   return (
-    <ProjectContext.Provider value={{ selectedProject, setSelectedProject }}>
+    <ProjectContext.Provider value={{ selectedProject, setSelectedProject, shouldOpenChat, setShouldOpenChat }}>
       {children}
     </ProjectContext.Provider>
   );

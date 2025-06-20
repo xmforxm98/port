@@ -56,7 +56,7 @@ const CHAT_FLOWS = {
     ]
   },
   education: {
-    message: "I have a Master of Arts in Design from Strate École de Design in Paris, France (2017-2019) with a specialization in Mobility Design, and a Bachelor from Science & Technology of Seoul National University (2011-2017) in the Design Department. My education has given me a strong foundation in both technical and creative aspects of design.",
+    message: "I have a Master of Arts in Design from Strate École de Design in Paris, France (2017-2019) with a specialization in Mobility Design, and a Bachelor of Design from Seoul National University S&T (2011-2017) in the Design Department. My education has given me a strong foundation in both technical and creative aspects of design.",
     options: [
       { id: "about", text: "More about you", action: "about" },
       { id: "back", text: "Back to main topics", action: "back_to_main" }

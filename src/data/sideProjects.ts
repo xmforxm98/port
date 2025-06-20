@@ -85,4 +85,45 @@ export const sideProjects: ProjectData[] = [
     tags: ["IoT", "UX", "Smartwatch"],
     year: "2019"
   },
+  {
+    id: "eidos-cards",
+    title: "Eidos Creative Cards",
+    description: "Creative ideation and design cards",
+    imageUrl: "https://firebasestorage.googleapis.com/v0/b/innerfive.firebasestorage.app/o/eidos_cards%2FOriented%20Ideator%20of%20Creative%20Affluent_1.png?alt=media",
+    images: [
+      "https://firebasestorage.googleapis.com/v0/b/innerfive.firebasestorage.app/o/eidos_cards%2FOriented%20Ideator%20of%20Creative%20Affluent_1.png?alt=media",
+      "https://firebasestorage.googleapis.com/v0/b/innerfive.firebasestorage.app/o/eidos_cards%2FOriented%20Ideator%20of%20Creative%20Affluent_2.png?alt=media",
+      "https://firebasestorage.googleapis.com/v0/b/innerfive.firebasestorage.app/o/eidos_cards%2FOriented%20Ideator%20of%20Creative%20Affluent_3.png?alt=media",
+      "https://firebasestorage.googleapis.com/v0/b/innerfive.firebasestorage.app/o/eidos_cards%2FThe%20Architect%20of%20Spirit%20of%20Great%20Manifestor_3.png?alt=media",
+      "https://firebasestorage.googleapis.com/v0/b/innerfive.firebasestorage.app/o/eidos_cards%2FThe%20Autonomous%20Leader%20of%20Strong-willed%20Lighthouse_4.png?alt=media",
+    ],
+    tags: ["AI", "Creative", "Cards"],
+    year: "2024"
+  },
+  {
+    id: "eidos-group",
+    title: "Eidos Group Images",
+    description: "Mystical group character illustrations",
+    imageUrl: "https://firebasestorage.googleapis.com/v0/b/innerfive.firebasestorage.app/o/eidos_group_image%2FAbyss_Explorer4.png?alt=media",
+    images: [
+      "https://firebasestorage.googleapis.com/v0/b/innerfive.firebasestorage.app/o/eidos_group_image%2FAbyss_Explorer4.png?alt=media",
+      "https://firebasestorage.googleapis.com/v0/b/innerfive.firebasestorage.app/o/eidos_group_image%2FWise_Guide3.png?alt=media",
+    ],
+    tags: ["AI", "Character Design"],
+    year: "2024"
+  },
+  {
+    id: "inner-compass",
+    title: "Inner Compass",
+    description: "Personal development and growth visualization",
+    imageUrl: "https://firebasestorage.googleapis.com/v0/b/innerfive.firebasestorage.app/o/inner_compass%2Fcore_identity3.png?alt=media",
+    images: [
+      "https://firebasestorage.googleapis.com/v0/b/innerfive.firebasestorage.app/o/inner_compass%2Fcore_identity3.png?alt=media",
+      "https://firebasestorage.googleapis.com/v0/b/innerfive.firebasestorage.app/o/inner_compass%2Fgrowth6.png?alt=media",
+      "https://firebasestorage.googleapis.com/v0/b/innerfive.firebasestorage.app/o/inner_compass%2Fstrengths5.png?alt=media",
+      "https://firebasestorage.googleapis.com/v0/b/innerfive.firebasestorage.app/o/inner_compass%2Fwhy_you_belong_to_this_group2.png?alt=media",
+    ],
+    tags: ["AI", "Personal Development"],
+    year: "2024"
+  },
 ]; 

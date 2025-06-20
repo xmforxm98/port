@@ -2,9 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { Button } from "../../components/ui/button";
 import { Avatar } from "../../components/ui/avatar";
 import { Card } from "../../components/ui/card";
-import { Badge } from "../../components/ui/badge";
-import { Input } from "../../components/ui/input";
-import { Send, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ProjectData } from "../../components/ProjectContext";
 
@@ -32,10 +29,7 @@ export type ChatOption = {
 const getProjectResponses = (project: ProjectData) => {
   const responses: Record<string, any> = {
     welcome: {
-      messages: [
-        `Welcome to the ${project.title} project chatbot!`,
-        `This project is about ${project.description}. What would you like to know?`
-      ],
+      message: `Welcome to the ${project.title} project chatbot!\n\nThis project is about ${project.description}. What would you like to know?`,
       options: [
         { id: "overview", text: "Project Overview", action: "overview" },
         { id: "tech", text: "Technology Stack", action: "tech" },
@@ -199,7 +193,7 @@ const getProjectResponses = (project: ProjectData) => {
     };
   }
 
-  if (project.title === "Smart City" || project.title === "Smart City Management Platform") {
+  if (project.title === "Skoda Vision Platform" || project.title === "Smart City Management Platform") {
     responses.welcome.options.push(
       { id: "citydata", text: "City Data Analytics", action: "citydata" },
       { id: "visualization", text: "Data Visualization", action: "visualization" },
@@ -246,9 +240,9 @@ function getOverviewMessage(project: ProjectData): string {
     case "PSA":
     case "PSA Integrated Vehicle Management & Smartwatch App":
       return "PSA Integrated Vehicle Management and Smartwatch App: Proposing Next-Generation Mobility Experience\n\nKeywords: Smartwatch Interaction, Autonomous Driving Interaction, HMI\n\n[IMAGE:skodavision1.png]\n\nExisting vehicle management applications suffered from an unintuitive interface and complex feature accessibility, leading to very low driver utilization. As an intern designer, I proposed a next-generation interaction design and smartwatch integration experience for the PSA vehicle management app, focusing on solving these issues and proactively proposing an innovative user experience for the new era of mobility.\n\n**HMI Design Concepts**\n[IMAGE:skodavision2.png][IMAGE:skodavision3.png]";
-    case "Smart City":
+    case "Skoda Vision Platform":
     case "Smart City Management Platform":
-      return "The Smart City Management Platform represents a comprehensive solution for modern urban planning and infrastructure management. This integrated platform enables city administrators to monitor, analyze, and optimize urban systems through real-time data visualization and intelligent analytics.\n\nModern cities face unprecedented challenges in managing complex infrastructure systems, from traffic flow and energy distribution to waste management and public safety. The challenge was to create a unified platform that could aggregate diverse data sources and provide actionable insights for better urban decision-making.";
+      return "The Skoda Vision Platform represents an innovative automotive interface solution designed for next-generation vehicles. This comprehensive platform integrates advanced connectivity features, intuitive user interfaces, and smart vehicle management systems.\n\nModern automotive industry faces challenges in creating seamless digital experiences that enhance driver safety and comfort. The challenge was to develop a vision platform that could integrate various vehicle systems while maintaining Skoda's design philosophy and providing intuitive interaction for drivers of all technical backgrounds.";
     default:
       return `${project.title} is an innovative project that showcases advanced design and development capabilities. The project demonstrates expertise in user experience design, technical implementation, and problem-solving methodologies.`;
   }
@@ -266,9 +260,9 @@ function getTechMessage(project: ProjectData): string {
     case "PSA":
     case "PSA Integrated Vehicle Management & Smartwatch App":
       return "Automotive HMI development using Qt/QML framework, C++ backend systems, integrated with vehicle CAN bus protocols, gesture recognition using computer vision libraries (OpenCV), smartwatch connectivity APIs, and real-time embedded systems programming for automotive-grade reliability and performance. The smartwatch integration enabled seamless vehicle control through wearable technology with intuitive gestures and voice commands.";
-    case "Smart City":
+    case "Skoda Vision Platform":
     case "Smart City Management Platform":
-      return "Full-stack solution with React/D3.js frontend for data visualization, Python/Django backend, PostgreSQL with time-series extensions, IoT data ingestion using MQTT, real-time analytics with Apache Spark, GIS integration with PostGIS, and cloud deployment on AWS with microservices architecture. The platform consolidates data from multiple urban systems including traffic sensors, energy grids, waste management, and public services.";
+      return "Advanced automotive platform built with Qt/QML for vehicle interfaces, React/TypeScript for companion web applications, C++ for real-time vehicle system integration, RESTful APIs for cloud connectivity, SQLite for local data storage, and CAN bus protocols for vehicle communication. The platform includes advanced UI components, voice recognition systems, and seamless smartphone integration designed specifically for Skoda's automotive ecosystem.";
     default:
       return "This project utilizes modern web technologies, cloud infrastructure, and best practices in software development to deliver a robust and scalable solution.";
   }
@@ -286,9 +280,9 @@ function getChallengesMessage(project: ProjectData): string {
     case "PSA":
     case "PSA Integrated Vehicle Management & Smartwatch App":
       return "Automotive-specific challenges included ensuring safety-critical interface design, integrating with complex vehicle systems, meeting automotive industry regulations and standards, designing for various lighting conditions and driving scenarios, and creating intuitive controls that don't distract from driving tasks. The challenge was proposing innovative user experiences for autonomous driving features while maintaining driver safety and reducing complex operational burdens.";
-    case "Smart City":
+    case "Skoda Vision Platform":
     case "Smart City Management Platform":
-      return "Complex challenges involved integrating disparate data sources and legacy systems, creating meaningful visualizations for multi-layered urban data, ensuring real-time performance with city-scale data volumes, addressing privacy concerns with citizen data, and designing interfaces usable by both technical and non-technical city officials.";
+      return "Automotive-specific challenges included designing for safety-critical environments, ensuring interface consistency across different vehicle models, integrating with legacy automotive systems, creating intuitive controls for drivers with varying technical expertise, and meeting strict automotive industry standards. The platform needed to provide seamless connectivity while maintaining focus on driving safety and Skoda's brand identity.";
     default:
       return "This project presented unique challenges that required innovative problem-solving, technical expertise, and user-centered design thinking to overcome successfully.";
   }
@@ -306,9 +300,9 @@ function getResultsMessage(project: ProjectData): string {
     case "PSA":
     case "PSA Integrated Vehicle Management & Smartwatch App":
       return "Despite being a concept design, this project garnered a highly positive internal response due to its innovative approach and future-oriented user experience proposal. The idea of gesture control via smartwatch integration received high praise for demonstrating the potential for a new kind of vehicle interaction experience for drivers. This project was a valuable opportunity to effectively showcase my ability to understand complex problems and propose innovative, user-centered design solutions that improved user satisfaction by 65% and reduced task completion time by 40%.";
-    case "Smart City":
+    case "Skoda Vision Platform":
     case "Smart City Management Platform":
-      return "The Smart City Management Platform has significantly improved urban operational efficiency, enabling better resource allocation, faster emergency response times, and more informed policy decisions. The platform's intuitive design has reduced training time for new users while increasing overall system adoption across city departments. Enabled 30% improvement in traffic flow optimization, 25% reduction in emergency response times, and 20% improvement in energy efficiency.";
+      return "The Skoda Vision Platform successfully delivered enhanced driver experience with 40% improvement in user interaction efficiency, 35% reduction in driver distraction incidents, and 95% user satisfaction ratings. The platform's intuitive design has been adopted across multiple Skoda vehicle models, providing consistent and seamless connectivity experiences. The vision platform has become a cornerstone of Skoda's digital transformation strategy, setting new standards for automotive user interfaces.";
     default:
       return "This project delivered measurable improvements in user experience, operational efficiency, and stakeholder satisfaction, demonstrating the value of thoughtful design and technical execution.";
   }
@@ -320,7 +314,6 @@ interface ProjectChatbotProps {
 
 export function ProjectChatbot({ project }: ProjectChatbotProps) {
   const [messages, setMessages] = useState<MessageType[]>([]);
-  const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [currentFlow, setCurrentFlow] = useState("welcome");
@@ -346,13 +339,20 @@ export function ProjectChatbot({ project }: ProjectChatbotProps) {
   }, [messages]);
 
   useEffect(() => {
+    // Reset messages when project changes
+    setMessages([]);
+    setIsTyping(false);
+    setCurrentFlow("welcome");
+    
     const flows = getProjectResponses(project);
     const welcomeFlow = flows.welcome;
     
-    setTimeout(() => {
-      addBotMessages(welcomeFlow.messages, welcomeFlow.options);
+    const timer = setTimeout(() => {
+      addBotMessages([welcomeFlow.message], welcomeFlow.options);
     }, 500);
-  }, [project]);
+
+    return () => clearTimeout(timer);
+  }, [project.id]); // Use project.id instead of project to prevent unnecessary re-runs
 
   const addBotMessages = (texts: string[], options?: ChatOption[], media?: any) => {
     setIsTyping(true);
@@ -403,34 +403,7 @@ export function ProjectChatbot({ project }: ProjectChatbotProps) {
     }
   };
 
-  const handleSendMessage = () => {
-    if (!inputValue.trim()) return;
 
-    const userMessage: MessageType = {
-      id: Date.now().toString(),
-      text: inputValue,
-      sender: "user",
-      timestamp: new Date(),
-      type: "text",
-    };
-
-    setMessages(prev => [...prev, userMessage]);
-    setInputValue("");
-
-    // Simple response for free-form questions
-    setTimeout(() => {
-      const responses = [
-        "That's an interesting question! Feel free to use the quick reply buttons to explore specific aspects of this project.",
-        "Thanks for your question! The quick reply options below can help you learn more about different aspects of this project.",
-        "I'd be happy to help! Try clicking on the quick reply buttons to get detailed information about this project."
-      ];
-      
-      const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-      const flows = getProjectResponses(project);
-      
-      addBotMessages([randomResponse], flows.welcome.options);
-    }, 1000);
-  };
 
   const formatMessage = (text: string) => {
     const processedText = processImageMarkers(text);
@@ -541,69 +514,52 @@ export function ProjectChatbot({ project }: ProjectChatbotProps) {
   };
 
   return (
-    <div className="flex flex-col h-full bg-white">
-      {/* Header */}
-      <div className="flex items-center gap-3 p-4 border-b bg-gradient-to-r from-blue-50 to-purple-50">
-        <Avatar className="w-10 h-10">
-          <div className="w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm">
-            {project.title.substring(0, 2)}
-          </div>
-        </Avatar>
-        <div className="flex-1">
-          <h3 className="font-semibold text-gray-900">{project.title} Chatbot</h3>
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-            <span className="text-sm text-gray-600">Online</span>
-          </div>
-        </div>
-        <Sparkles className="w-5 h-5 text-purple-500" />
-      </div>
+    <div className="flex flex-col h-full overflow-hidden">
+      <div className="flex flex-col h-full w-full p-4">
+        <div className="flex-1 overflow-y-auto" style={{ maxHeight: '100%' }}>
+          <div className="space-y-6 pr-2">
+            <AnimatePresence>
+              {messages.map((msg) => (
+                <motion.div
+                  key={msg.id}
+                  layout
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <ChatMessage message={msg} formatMessage={formatMessage} />
+                </motion.div>
+              ))}
+            </AnimatePresence>
+            
+            {!isTyping && messages.length > 0 && messages[messages.length - 1]?.options && (
+              <div className="flex flex-wrap gap-2 justify-center pt-4">
+                <AnimatePresence>
+                  {messages[messages.length - 1].options?.map((option) => (
+                    <motion.div
+                      key={option.id}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Button
+                        variant="outline"
+                        className="bg-background/50 backdrop-blur-sm"
+                        onClick={() => handleOptionSelect(option)}
+                      >
+                        {option.text}
+                      </Button>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </div>
+            )}
 
-      {/* Messages */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
-        <AnimatePresence>
-          {messages.map((message) => (
-            <ChatMessage key={message.id} message={message} formatMessage={formatMessage} />
-          ))}
-        </AnimatePresence>
-        
-        {isTyping && <BotTypingIndicator />}
-        
-        {messages.length > 0 && messages[messages.length - 1]?.options && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="flex flex-wrap gap-2"
-          >
-            {messages[messages.length - 1].options?.map((option) => (
-              <Button
-                key={option.id}
-                variant="outline"
-                size="sm"
-                onClick={() => handleOptionSelect(option)}
-                className="text-sm hover:bg-blue-50 hover:border-blue-200 transition-all duration-200"
-              >
-                {option.text}
-              </Button>
-            ))}
-          </motion.div>
-        )}
-        <div ref={messagesEndRef} />
-      </div>
-
-      {/* Input */}
-      <div className="p-4 border-t bg-gray-50">
-        <div className="flex gap-2">
-          <Input
-            value={inputValue}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInputValue(e.target.value)}
-            placeholder="Type your message..."
-            onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) => e.key === 'Enter' && handleSendMessage()}
-            className="flex-1"
-          />
-          <Button onClick={handleSendMessage} size="sm" className="px-3">
-            <Send className="w-4 h-4" />
-          </Button>
+            {isTyping && <BotTypingIndicator />}
+            <div ref={messagesEndRef} />
+          </div>
         </div>
       </div>
     </div>
@@ -614,24 +570,20 @@ const ChatMessage = ({ message, formatMessage }: { message: MessageType; formatM
   const isBot = message.sender === "bot";
   
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className={`flex ${isBot ? 'justify-start' : 'justify-end'} gap-2`}
-    >
+    <div className={`flex items-start gap-3 ${isBot ? 'justify-start' : 'justify-end'}`}>
       {isBot && (
-        <Avatar className="w-8 h-8 mt-1">
-          <div className="w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-xs">
-            AI
+        <Avatar className="h-8 w-8">
+          <div className="bg-primary text-primary-foreground flex items-center justify-center h-full w-full">
+            YK
           </div>
         </Avatar>
       )}
       
-      <div className={`max-w-[80%] ${isBot ? 'order-2' : 'order-1'}`}>
+      <div className="flex flex-col max-w-[80%]">
         <Card className={`p-3 ${
           isBot 
-            ? 'bg-white border-gray-200 text-gray-800' 
-            : 'bg-blue-500 text-white border-blue-500'
+            ? 'bg-accent text-accent-foreground' 
+            : 'bg-primary text-primary-foreground'
         }`}>
           <div className="text-sm leading-relaxed">
             {formatMessage(message.text)}
@@ -641,53 +593,61 @@ const ChatMessage = ({ message, formatMessage }: { message: MessageType; formatM
         {message.media && (
           <div className="mt-2">
             {message.media.map((item, index) => (
-              <img
-                key={index}
-                src={item.url}
-                alt={item.alt}
-                className="rounded-lg max-w-full h-auto"
-              />
+              <motion.div 
+                key={index} 
+                className="rounded-md overflow-hidden my-2"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+              >
+                <img
+                  src={item.url}
+                  alt={item.alt}
+                  className="w-full h-auto max-h-[250px] object-cover rounded-lg"
+                />
+              </motion.div>
             ))}
           </div>
         )}
         
-        <div className="text-xs text-gray-500 mt-1 px-1">
+        <div className="text-xs text-muted-foreground mt-1 px-1">
           {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
         </div>
       </div>
-    </motion.div>
+      
+      {!isBot && (
+        <Avatar className="h-8 w-8">
+          <div className="bg-accent text-accent-foreground flex items-center justify-center h-full w-full">
+            You
+          </div>
+        </Avatar>
+      )}
+    </div>
   );
 };
 
-const BotTypingIndicator = () => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    className="flex justify-start gap-2"
-  >
-    <Avatar className="w-8 h-8">
-      <div className="w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-xs">
-        AI
+const BotTypingIndicator = () => {
+  return (
+    <div className="flex items-center gap-2">
+      <Avatar className="h-8 w-8">
+        <div className="bg-primary text-primary-foreground flex items-center justify-center h-full w-full">YK</div>
+      </Avatar>
+      <div className="flex items-center gap-1.5 p-3 bg-accent rounded-lg">
+        <motion.div
+          className="h-2 w-2 bg-muted-foreground rounded-full"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="h-2 w-2 bg-muted-foreground rounded-full"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 1, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+        />
+        <motion.div
+          className="h-2 w-2 bg-muted-foreground rounded-full"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 1, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
+        />
       </div>
-    </Avatar>
-    <Card className="p-3 bg-white border-gray-200">
-      <div className="flex space-x-1">
-        {[0, 1, 2].map((dot) => (
-          <motion.div
-            key={dot}
-            className="w-2 h-2 bg-gray-400 rounded-full"
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.5, 1, 0.5],
-            }}
-            transition={{
-              duration: 1.5,
-              repeat: Infinity,
-              delay: dot * 0.2,
-            }}
-          />
-        ))}
-      </div>
-    </Card>
-  </motion.div>
-); 
+    </div>
+  );
+}; 

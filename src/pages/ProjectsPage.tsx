@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ProjectsGallery } from "../../components/ProjectsGallery";
 import { ProjectDetail } from "../../components/ProjectDetail";
-import { ProjectData } from "../../components/ProjectContext";
+import { ProjectData, useProject } from "../../components/ProjectContext";
 
 interface ProjectsPageProps {
   onDiscussProject?: (project: ProjectData) => void;
@@ -13,9 +13,11 @@ interface ProjectsPageProps {
 
 export const ProjectsPage: React.FC<ProjectsPageProps> = ({ isSideProjects }) => {
   const [viewingProject, setViewingProject] = useState<ProjectData | null>(null);
+  const { setShouldOpenChat } = useProject();
 
-  const handleViewProject = (project: ProjectData) => {
+  const handleViewProject = (project: ProjectData, openChat: boolean = false) => {
     setViewingProject(project);
+    setShouldOpenChat(openChat);
   };
 
   const handleBackToGallery = () => {

@@ -3,9 +3,10 @@ import { ContentRouter } from "@/components/ContentRouter";
 import GooeyNav from "@/components/ui/GooeyNav/GooeyNav";
 import { navItems } from "@/config/navigation";
 import { ProjectProvider } from "../components/ProjectContext";
+import Aurora from "../components/Aurora";
 
 export default function App() {
-  const [selectedSection, setSelectedSection] = useState<string>("about");
+  const [selectedSection, setSelectedSection] = useState<string>("chat");
 
   useEffect(() => {
     document.documentElement.classList.add('dark');
@@ -31,7 +32,15 @@ export default function App() {
 
         <div className="flex-1 flex flex-col overflow-hidden">
           <div className="relative flex-1 flex flex-col h-full w-full">
-            {/* Background Aurora effect is now handled globally via CSS */}
+            {/* Aurora Background Effect */}
+            <div className="absolute inset-0 z-0">
+              <Aurora 
+                colorStops={["#3100a3", "#10949d", "#284dbd"]}
+                amplitude={0.7}
+                blend={0.25}
+                speed={0.4}
+              />
+            </div>
             
             {/* Main Content */}
             <main className="relative z-10 flex flex-1 flex-col w-full h-full overflow-y-auto">
@@ -39,11 +48,6 @@ export default function App() {
             </main>
           </div>
         </div>
-        <footer className="shrink-0 border-t border-white/10 py-4">
-          <div className="container mx-auto px-4 text-center text-sm text-gray-400">
-            <p>&copy; 2024 Yongwoo Kim. All Rights Reserved.</p>
-          </div>
-        </footer>
       </div>
     </ProjectProvider>
   );

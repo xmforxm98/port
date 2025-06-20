@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Card,
@@ -12,13 +12,64 @@ import { useProject, ProjectData } from "./ProjectContext";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ScrollArea } from "./ui/scroll-area";
 import { MessageSquare } from "lucide-react";
+import { sideProjects } from "../src/data/sideProjects";
 
 interface ProjectsGalleryProps {
   isSideProjects: boolean;
-  onDiscussProject: (project: ProjectData) => void;
+  onDiscussProject: (project: ProjectData, openChat?: boolean) => void;
 }
 
 const mainProjects: ProjectData[] = [
+        {
+          id: "play2-project",
+          title: "PL@Y2",
+          description: "Live Event Ticketing Solution featuring ticket transfer market and reservation prototype with 9M user data analysis and innovative UX solutions.",
+          imageUrl: "/images/play1.png",
+          images: [
+            "/images/play0.png",
+            "/images/play1.png",
+            "/images/play2.png",
+            "/images/play3.png",
+            "/images/play4.png",
+            "/images/play5.png",
+            "/images/play6.png",
+            "/images/play7.png",
+            "/images/play8.png"
+          ],
+          year: "2023",
+          tags: ["UX/UI Design", "Sales Management", "Event Platform", "User Research"],
+          featured: true,
+        },
+        {
+          id: "made-project",
+          title: "M.A.D.E. Project: Lead Designer & PM Role",
+          description: "A marketplace platform connecting marketers and advertisers through competition-based talent discovery and digital advertising market innovation.",
+          imageUrl: "/images/made0.jpg",
+          images: [
+            "/images/made0.jpg",
+            "/images/made1.png",
+            "/images/made2.png",
+            "/images/made3.png",
+            "/images/made4.png"
+          ],
+          year: "2022",
+          tags: ["Lead Design", "Product Management", "Digital Marketing", "UX Research"],
+          featured: true,
+        },
+        {
+          id: "b2b-saas-project",
+          title: "B2B SaaS AI Solution",
+          description: "Real-time data monitoring and AI insight derivation tools for enterprise clients with predictive analytics and automated anomaly detection.",
+          imageUrl: "/images/dataanalytics1.png",
+          images: [
+            "/images/dataanalytics1.png",
+            "/images/dataanalytics2.png",
+            "/images/dataanalytics3.png"
+          ],
+          year: "2023",
+          tags: ["AI", "B2B", "Data Analytics", "Enterprise"],
+          featured: true,
+        },
         {
           id: "creative-portfolio",
           title: "PSA Integrated Vehicle Management & Smartwatch App",
@@ -30,61 +81,42 @@ const mainProjects: ProjectData[] = [
         },
         {
           id: "smart-city-platform",
-          title: "Smart City Management Platform",
-          description: "An integrated platform for urban planning and smart city infrastructure management with real-time monitoring and analytics.",
-          imageUrl: "https://raw.githubusercontent.com/xmforxm98/Images/main/S1.png",
+          title: "Skoda Vision Platform",
+          description: "An innovative automotive vision platform for Skoda featuring next-generation vehicle interface design and smart connectivity solutions.",
+          imageUrl: "/images/skodavision1.png",
+          images: [
+            "/images/skodavision1.png",
+            "/images/skodavision2.png",
+            "/images/skodavision3.png",
+            "/images/skodavision4.png"
+          ],
           year: "2021",
-          tags: ["Smart City", "Platform Design", "Urban Planning", "IoT"],
-          featured: true,
-        },
-        {
-          id: "made-project",
-          title: "M.A.D.E. Project: Lead Designer & PM Role",
-          description: "A marketplace platform connecting marketers and advertisers through competition-based talent discovery and digital advertising market innovation.",
-          imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-          year: "2022",
-          tags: ["Lead Design", "Product Management", "Digital Marketing", "UX Research"],
-          featured: true,
-        },
-        {
-          id: "play2-project",
-          title: "PL@Y2",
-          description: "Live Event Ticketing Solution featuring ticket transfer market and reservation prototype with 9M user data analysis and innovative UX solutions.",
-          imageUrl: "/images/play1.png",
-          year: "2023",
-          tags: ["UX/UI Design", "Sales Management", "Event Platform", "User Research"],
-          featured: true,
-        },
-        {
-          id: "b2b-saas-project",
-          title: "B2B SaaS AI Solution",
-          description: "Real-time data monitoring and AI insight derivation tools for enterprise clients with predictive analytics and automated anomaly detection.",
-          imageUrl: "/images/dataanalytics1.png",
-          year: "2023",
-          tags: ["AI", "B2B", "Data Analytics", "Enterprise"],
+          tags: ["Automotive", "Vision Platform", "Interface Design", "Skoda"],
           featured: true,
         }
       ];
 
-const sideProjects = [/* ... side projects data ... */]; // This part is now handled in App.tsx
-
 const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ isSideProjects, onDiscussProject }) => {
   const { setSelectedProject } = useProject();
-  const [filteredProjects, setFilteredProjects] = useState<ProjectData[]>(mainProjects);
+  const [filteredProjects, setFilteredProjects] = useState<ProjectData[]>(isSideProjects ? sideProjects : mainProjects);
+
+  useEffect(() => {
+    setFilteredProjects(isSideProjects ? sideProjects : mainProjects);
+  }, [isSideProjects]);
 
   const handleOpenProject = (project: ProjectData) => {
     if (onDiscussProject) {
-      onDiscussProject(project);
+      onDiscussProject(project, false);
     }
   };
 
   const handleNavigateToProjectChat = (project: ProjectData) => {
     if (onDiscussProject) {
-      onDiscussProject(project);
+      onDiscussProject(project, true);
     }
   };
 
-  return (
+    return (
     <div className="flex flex-col h-full overflow-auto">
       <ScrollArea className="flex-1">
         <div className="p-6 max-w-6xl mx-auto">
@@ -135,7 +167,7 @@ const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ isSideProjects, onDis
                           variant="ghost"
                           onClick={() => handleNavigateToProjectChat(project)}
                         >
-                         Discuss with AI
+                         Ask Chatbot
                          <MessageSquare size={16} className="ml-2"/>
                         </Button>
                     </div>

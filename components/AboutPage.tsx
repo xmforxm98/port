@@ -62,7 +62,7 @@ export function AboutPage() {
               avatarUrl="/profile.jpg"
               showUserInfo={true}
               enableTilt={true}
-              onContactClick={() => console.log('Contact clicked')}
+              onContactClick={() => window.open('https://linkedin.com/in/yongwoo-kim', '_blank')}
             />
           </div>
           <div className="flex flex-wrap justify-center gap-4 pt-4 text-sm text-muted-foreground">
@@ -162,8 +162,8 @@ export function AboutPage() {
             </div>
             
             <div className="border-l-2 border-muted pl-4">
-              <h3 className="font-semibold text-lg">Bachelor of Science & Technology</h3>
-              <p className="text-primary font-medium">Seoul National University</p>
+              <h3 className="font-semibold text-lg">Bachelor of Design</h3>
+              <p className="text-primary font-medium">Seoul National University S&T</p>
               <p className="text-sm text-muted-foreground flex items-center gap-1 mb-2">
                 <Calendar size={14} />
                 2011 - 2017 • Seoul, Korea

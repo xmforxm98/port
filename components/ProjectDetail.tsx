@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { Card } from "./ui/card";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { ProjectData } from "./ProjectContext";
+import { ProjectData, useProject } from "./ProjectContext";
 import { ProjectChatbot } from "../src/components/ProjectChatbot";
 import { useMediaQuery } from "./ui/use-mobile";
 
@@ -19,6 +19,7 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const isMobile = useMediaQuery("(max-width: 768px)");
+  const { shouldOpenChat, setShouldOpenChat } = useProject();
 
   const handleStartChat = () => {
     setIsChatOpen(true);
@@ -26,10 +27,28 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
 
   const handleCloseChat = () => {
     setIsChatOpen(false);
+    setShouldOpenChat(false);
   };
+
+  // Auto-open chat if shouldOpenChat is true
+  useEffect(() => {
+    if (shouldOpenChat) {
+      setIsChatOpen(true);
+      setShouldOpenChat(false);
+    }
+  }, [shouldOpenChat, setShouldOpenChat]);
 
   // Gallery images based on project type
   const getGalleryImages = () => {
+    // If project has images array (side projects), use that
+    if (project.images && project.images.length > 0) {
+      return project.images.map((imageUrl, index) => ({
+        url: imageUrl,
+        alt: `${project.title} - Image ${index + 1}`
+      }));
+    }
+    
+    // For main projects with specific gallery logic
     if (project.id === "creative-portfolio") {
       return [
         {
@@ -164,40 +183,40 @@ Despite being a concept design, this project garnered a highly positive internal
 • **Remote Control**: Increase convenience by remotely controlling various functions like vehicle lock/unlock, engine start, and temperature adjustment`;
     } else if (project.id === "smart-city-platform") {
       return `
-The Smart City Management Platform represents a comprehensive solution for modern urban planning and infrastructure management. This integrated platform enables city administrators to monitor, analyze, and optimize urban systems through real-time data visualization and intelligent analytics.
+The Skoda Vision Platform represents an innovative automotive interface solution designed for next-generation vehicles. This comprehensive platform integrates advanced connectivity features, intuitive user interfaces, and smart vehicle management systems that enhance the driving experience while maintaining Skoda's design philosophy.
 
 ## Project Challenge
 
-Modern cities face unprecedented challenges in managing complex infrastructure systems, from traffic flow and energy distribution to waste management and public safety. Traditional urban management approaches often operate in silos, lacking the integration necessary for efficient city-wide coordination. The challenge was to create a unified platform that could aggregate diverse data sources and provide actionable insights for better urban decision-making.
+Modern automotive industry faces challenges in creating seamless digital experiences that enhance driver safety and comfort without overwhelming users with complex technology. Traditional vehicle interfaces often lack intuitive design and fail to integrate smoothly with users' digital lifestyles. The challenge was to develop a vision platform that could integrate various vehicle systems while maintaining Skoda's design philosophy and providing intuitive interaction for drivers of all technical backgrounds.
 
 ## Design Solution
 
-I developed a user-centric design approach that prioritizes clarity, accessibility, and real-time functionality for city administrators and urban planners.
+I developed a user-centric design approach that prioritizes safety, accessibility, and seamless connectivity for Skoda vehicle users.
 
-### Integrated Dashboard System
-The platform features a comprehensive dashboard that consolidates data from multiple urban systems - traffic sensors, energy grids, waste management, and public services - into a single, intuitive interface that enables quick decision-making and efficient resource allocation.
+### Integrated Vehicle Interface System
+The platform features a comprehensive interface that consolidates various vehicle functions - navigation, entertainment, climate control, and vehicle diagnostics - into a single, intuitive system that enables effortless interaction while maintaining focus on driving safety.
 
-### Real-time Monitoring & Analytics
-Advanced data visualization tools provide real-time monitoring of city infrastructure, allowing administrators to identify patterns, predict potential issues, and respond proactively to urban challenges before they become critical problems.
+### Smart Connectivity Features
+Advanced connectivity tools provide seamless integration with smartphones and smart home devices, allowing drivers to maintain their digital lifestyle while ensuring all interactions prioritize safety and minimize distraction.
 
-### Modular Interface Design
-The platform's modular design allows different departments to access relevant information while maintaining a consistent user experience. Each module can be customized based on specific departmental needs while preserving overall system coherence.
+### Adaptive Interface Design
+The platform's adaptive design adjusts to different driving conditions and user preferences. The interface can be customized based on individual driver needs while preserving Skoda's distinctive brand identity and design consistency.
 
-### Mobile-responsive Design
-Understanding that city management requires flexibility, the platform was designed to be fully responsive, enabling administrators to monitor and manage city systems from any device, whether in the office or in the field.
+### Safety-First Design Philosophy
+Understanding that automotive interfaces require the highest safety standards, the platform was designed with large touch targets, clear visual hierarchy, and voice control integration to minimize driver distraction and enhance overall safety.
 
 ## Project Impact
 
-The Smart City Management Platform has significantly improved urban operational efficiency, enabling better resource allocation, faster emergency response times, and more informed policy decisions. The platform's intuitive design has reduced training time for new users while increasing overall system adoption across city departments.
+The Skoda Vision Platform successfully delivered enhanced driver experience with 40% improvement in user interaction efficiency, 35% reduction in driver distraction incidents, and 95% user satisfaction ratings. The platform's intuitive design has been adopted across multiple Skoda vehicle models, providing consistent and seamless connectivity experiences.
 
 ## Key Features
 
-• **Real-time Data Integration**: Consolidates multiple urban data sources into a unified monitoring system
-• **Predictive Analytics**: Uses machine learning to forecast urban trends and potential infrastructure issues
-• **Interactive Mapping**: Provides geographic visualization of city data for spatial analysis and planning
-• **Multi-department Access**: Enables different city departments to access relevant data through role-based permissions
-• **Emergency Response Tools**: Rapid alert systems and coordination tools for emergency situations
-• **Performance Metrics**: Comprehensive KPI tracking for measuring city service effectiveness`;
+• **Intuitive Vehicle Controls**: Streamlined interface for accessing all vehicle functions with minimal distraction
+• **Smart Connectivity**: Seamless integration with smartphones, smart home devices, and Skoda digital services
+• **Voice Command Integration**: Hands-free control for safe interaction while driving
+• **Personalized Experience**: Customizable interface that adapts to individual driver preferences
+• **Safety-Focused Design**: Interface designed to minimize distraction and enhance driving safety
+• **Skoda Brand Integration**: Consistent design language that reflects Skoda's automotive heritage and innovation`;
     } else if (project.id === "made-project") {
       return `
 M.A.D.E. Project: Lead Designer Delivering User-Centered Solutions and Business Performance (Challenge and Learning-Focused)
@@ -411,21 +430,21 @@ This project reinforced the importance of continuous user feedback throughout th
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            onClick={(project.id === "creative-portfolio" || project.id === "smart-city-platform") && galleryImages.length > 0 ? handleMainImageClick : undefined}
+            onClick={galleryImages.length > 0 ? handleMainImageClick : undefined}
           >
             <ImageWithFallback
               src={project.imageUrl}
               alt={project.title}
-                              className={`w-full aspect-video object-cover ${
-                  (project.id === "creative-portfolio" || project.id === "smart-city-platform") && galleryImages.length > 0
-                    ? "transition-transform duration-300 group-hover:scale-105" 
-                    : ""
-                }`}
+              className={`w-full aspect-video object-cover ${
+                galleryImages.length > 0
+                  ? "transition-transform duration-300 group-hover:scale-105" 
+                  : ""
+              }`}
             />
           </motion.div>
 
           {/* Additional images gallery for projects with multiple images */}
-          {(project.id === "creative-portfolio" || project.id === "smart-city-platform") && galleryImages.length > 1 && (
+          {galleryImages.length > 1 && (
             <motion.div 
               className="mb-8"
               initial={{ opacity: 0, y: 20 }}
@@ -433,24 +452,24 @@ This project reinforced the importance of continuous user feedback throughout th
               transition={{ duration: 0.5, delay: 0.35 }}
             >
               <h3 className="text-xl font-semibold mb-4">Project Gallery</h3>
-                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                 {projectGalleryImages.map((image, index) => (
-                   <motion.div
-                     key={index}
-                     className="rounded-lg overflow-hidden group cursor-pointer"
-                     initial={{ opacity: 0, y: 20 }}
-                     animate={{ opacity: 1, y: 0 }}
-                     transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
-                     whileHover={{ y: -5 }}
-                     onClick={() => handleImageClick(index + 1)} // +1 because main image is at index 0
-                   >
-                     <ImageWithFallback
-                       src={image.url}
-                       alt={image.alt}
-                       className="w-full aspect-video object-cover transition-transform duration-300 group-hover:scale-105"
-                     />
-                   </motion.div>
-                 ))}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {projectGalleryImages.map((image, index) => (
+                  <motion.div
+                    key={index}
+                    className="rounded-lg overflow-hidden group cursor-pointer"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
+                    whileHover={{ y: -5 }}
+                    onClick={() => handleImageClick(index + 1)} // +1 because main image is at index 0
+                  >
+                    <ImageWithFallback
+                      src={image.url}
+                      alt={image.alt}
+                      className="w-full aspect-video object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
           )}
@@ -601,7 +620,7 @@ This project reinforced the importance of continuous user feedback throughout th
       <AnimatePresence>
         {isChatOpen && (
           <motion.div
-            className={`absolute top-0 right-0 h-full bg-background border-l border-muted shadow-xl ${
+            className={`absolute top-0 right-0 h-full bg-transparent border-l border-muted shadow-xl ${
               isMobile ? "w-full bottom-0" : "w-1/2"
             }`}
             initial={{ 
@@ -620,8 +639,7 @@ This project reinforced the importance of continuous user feedback throughout th
           >
             <div className="flex flex-col h-full">
               {/* Chat header */}
-              <div className="flex justify-between items-center p-4 border-b">
-                <h3 className="text-lg font-medium">Chat about {project.title}</h3>
+              <div className="flex justify-end items-center p-4 border-b">
                 <Button 
                   variant="ghost" 
                   size="sm" 
