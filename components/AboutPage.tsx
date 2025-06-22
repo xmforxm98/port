@@ -82,7 +82,7 @@ export function AboutPage() {
         </motion.div>
 
         {/* About Section */}
-        <motion.div variants={itemVariants} className="bg-card rounded-lg p-6 shadow-sm">
+        <motion.div variants={itemVariants}>
           <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
             <Users className="text-primary" size={24} />
             About Me
@@ -96,7 +96,7 @@ export function AboutPage() {
         </motion.div>
 
         {/* Experience Section */}
-        <motion.div variants={itemVariants} className="bg-card rounded-lg p-6 shadow-sm">
+        <motion.div variants={itemVariants}>
           <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
             <Briefcase className="text-primary" size={24} />
             Experience
@@ -145,7 +145,7 @@ export function AboutPage() {
         </motion.div>
 
         {/* Education Section */}
-        <motion.div variants={itemVariants} className="bg-card rounded-lg p-6 shadow-sm">
+        <motion.div variants={itemVariants}>
           <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
             <GraduationCap className="text-primary" size={24} />
             Education
@@ -174,7 +174,7 @@ export function AboutPage() {
         </motion.div>
 
         {/* Skills Section */}
-        <motion.div variants={itemVariants} className="bg-card rounded-lg p-6 shadow-sm">
+        <motion.div variants={itemVariants}>
           <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
             <Palette className="text-primary" size={24} />
             Skills & Technologies
@@ -213,7 +213,7 @@ export function AboutPage() {
         </motion.div>
 
         {/* Languages Section */}
-        <motion.div variants={itemVariants} className="bg-card rounded-lg p-6 shadow-sm">
+        <motion.div variants={itemVariants}>
           <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
             <Globe className="text-primary" size={24} />
             Languages
@@ -231,13 +231,13 @@ export function AboutPage() {
         </motion.div>
 
         {/* Awards Section */}
-        <motion.div variants={itemVariants} className="bg-card rounded-lg p-6 shadow-sm">
+        <motion.div variants={itemVariants}>
           <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
             <Award className="text-primary" size={24} />
             Awards & Recognition
           </h2>
           <div className="space-y-4">
-            <div className="flex items-start gap-3 p-4 bg-primary/5 rounded-lg">
+            <div className="flex items-start gap-3">
               <Award className="text-primary flex-shrink-0 mt-1" size={20} />
               <div>
                 <h3 className="font-semibold">Culture Platform UX, Grand Prize</h3>
@@ -245,7 +245,7 @@ export function AboutPage() {
               </div>
             </div>
             
-            <div className="flex items-start gap-3 p-4 bg-primary/5 rounded-lg">
+            <div className="flex items-start gap-3">
               <Award className="text-primary flex-shrink-0 mt-1" size={20} />
               <div>
                 <h3 className="font-semibold">BMW Young Design Award, Winner</h3>
@@ -256,14 +256,14 @@ export function AboutPage() {
         </motion.div>
 
         {/* Career Q&A Section */}
-        <motion.div variants={itemVariants} className="bg-card rounded-lg p-6 shadow-sm">
+        <motion.div variants={itemVariants}>
           <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
             <MessageCircle className="text-primary" size={24} />
             Career Q&A
           </h2>
           <div className="space-y-6">
             {/* Question 1 */}
-            <div className="p-4 bg-primary/5 rounded-lg">
+            <div>
               <div className="flex items-start gap-3 mb-3">
                 <ChevronRight className="text-primary flex-shrink-0 mt-1" size={16} />
                 <h3 className="font-semibold text-primary">What motivates you in design?</h3>
@@ -276,7 +276,7 @@ export function AboutPage() {
             </div>
 
             {/* Question 2 */}
-            <div className="p-4 bg-primary/5 rounded-lg">
+            <div>
               <div className="flex items-start gap-3 mb-3">
                 <ChevronRight className="text-primary flex-shrink-0 mt-1" size={16} />
                 <h3 className="font-semibold text-primary">How do you approach new challenges?</h3>
@@ -289,7 +289,7 @@ export function AboutPage() {
             </div>
 
             {/* Question 3 */}
-            <div className="p-4 bg-primary/5 rounded-lg">
+            <div>
               <div className="flex items-start gap-3 mb-3">
                 <ChevronRight className="text-primary flex-shrink-0 mt-1" size={16} />
                 <h3 className="font-semibold text-primary">What's your career vision?</h3>
@@ -302,7 +302,7 @@ export function AboutPage() {
             </div>
 
             {/* Question 4 */}
-            <div className="p-4 bg-primary/5 rounded-lg">
+            <div>
               <div className="flex items-start gap-3 mb-3">
                 <ChevronRight className="text-primary flex-shrink-0 mt-1" size={16} />
                 <h3 className="font-semibold text-primary">What makes you unique as a designer?</h3>

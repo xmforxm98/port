@@ -8,6 +8,8 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ProjectData, useProject } from "./ProjectContext";
 import { ProjectChatbot } from "../src/components/ProjectChatbot";
 import { useMediaQuery } from "./ui/use-mobile";
+import ProcessFlow from "../src/components/ui/ProcessFlow";
+import ProblemTable from "../src/components/ui/ProblemTable";
 
 interface ProjectDetailProps {
   project: ProjectData;
@@ -150,7 +152,79 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
   }, [selectedImageIndex]);
 
   const getProjectContent = () => {
-    if (project.id === "creative-portfolio") {
+    if (project.id === "play2-project") {
+      return `
+Next Generation Live Event Ticketing Platform
+
+Using existing cloud technology, we have produced a prototype of a serverless cloud-based real-time ticket reservation solution and released some. In order to prove the business model and hypothesis, we have signed a contract with major agencies and open 3 musical performances in Korea and sell them to users.
+
+This project was a challenging solution to present a new ticketing UX that never existed before in Zero Two One. To this end, we analyzed user needs through in-depth interviews with more than 9 million user behavior data recorded on PL@Y2 from 2020 to 2022.
+
+## 1. UX Research
+
+I planned and executed quantitative/standard research with 2 team members. Power BI, Kibana, and Elastic studies were used to analyze PL@Y2's 9 million user behavior data, and interview methods were used for in-depth surveys.
+
+The 9 million data include user-entered reviews and ticketing data from Interpark, Kakao and NHN, Korea's leading corporate ticketing companies. We also conducted a survey and in-depth interview with 38 event ticket buyers.
+
+As a result, I had a deep understanding of the core user base of PL@Y2. The main key users of ticketing were **women between the ages of 20 and 30** who watched the same work more than twice and spent an average of **300,000 won per month** on cultural activities more than three times a week.
+
+## 2. Problem Definition
+
+Through research, we identified consumers' most important difficulties and their ultimate needs due to environmental limitations of the existing ticketing system. Their three key Pain Points were server problems, overlapping selections, macros and lack of real-time information, and the ultimate demand of ticket-buying users was the front seat of the work they were booking.
+
+The causes of the ticketing experience, which was negative for not achieving the goal, could be defined as the environmental constraints of the system.
+
+## 3. Solution
+
+Our team tried to find the optimal UX solution to the problem presented. To this end, we created hypotheses for a total of four core UX environments, structured the hypotheses with UX/UI, and started designing them according to the design language of the existing PL@Y2.
+
+### 3.1 UX Solution 1 - Pre Open
+
+We designed a UX that allows users to come in an hour before the official opening of the ticket and book the essentials of ticket reservation.
+
+This allows users waiting for resale to access anywhere on their mobile, not on their PCs, to avoid wasting time, and to eliminate the seat selection advantage of the resale-purpose macro program, allowing real buyers to buy seats.
+
+In addition, reflecting the insights of the user behavior experience obtained through research, it is structured to enable **casting-first selection** rather than date-first selection of works.
+
+### 3.2 UX Solution 2 - Real Time Information
+
+It shows the number of real-time visitors to the circuit you want to enter to make a reservation and reveals the number of real-time visitors who select seats.
+
+This will allow users to take various strategies for ticket reservation, such as choosing seats with low seat competition and viewing the rounds they want to see.
+
+### 3.3 UX Solution 3 - One Touch Payment
+
+In the case of the existing ticket reservation system, due to environmental problems such as PG company's server connected to the web/app, if the same seat is selected and purchased, the server does not provide information on the pre-empted seat.
+
+Instead of making payments in real time, we devised a UX method that temporarily stores payment data in PL@Y2 servers and establishes an architecture in which connected PG servers are stable and pay sequentially to solve server problems and solve payments with one touch.
+
+Through this, we have established a UX solution that allows you to immediately select another seat and try to pay even if the payment fails.
+
+## Key Achievements
+
+The PL@Y2 platform delivered significant improvements in user experience and business metrics:
+
+**70% Improvement in Booking Completion Rates**: The streamlined booking process and real-time updates significantly reduced user abandonment.
+
+**85% User Satisfaction Score**: Post-launch user feedback indicated high satisfaction with the new booking experience.
+
+**45% Reduction in Customer Support Tickets**: Intuitive design and clear user flows reduced the need for customer support intervention.
+
+**Successful High-Traffic Handling**: The platform successfully managed peak traffic during major event releases without system failures.
+
+## Impact and Recognition
+
+The PL@Y2 platform has become a benchmark for innovative ticketing solutions in Korea, with the design solutions being implemented across the entire ticketing platform serving millions of users. The project demonstrated the power of data-driven design and the importance of user-centered approaches in creating successful digital products.
+
+## Key Features
+
+• **Pre-Open Booking**: Hour-before access with casting-first selection to eliminate macro advantages
+• **Real-Time Information**: Live visitor counts and seat competition data for strategic booking
+• **One-Touch Payment**: Temporary data storage with sequential PG processing for seamless payments
+• **Mobile-First Design**: Optimized for mobile access with responsive interface
+• **Data-Driven Insights**: Based on 9M+ user behavior data from major Korean ticketing platforms
+• **Agency Integration**: Partnerships with major agencies for 3 live musical performances`;
+    } else if (project.id === "creative-portfolio") {
       return `
 PSA Integrated Vehicle Management and Smartwatch App: Proposing Next-Generation Mobility Experience
 Keywords: Smartwatch Interaction, Autonomous Driving Interaction, HMI
@@ -183,40 +257,56 @@ Despite being a concept design, this project garnered a highly positive internal
 • **Remote Control**: Increase convenience by remotely controlling various functions like vehicle lock/unlock, engine start, and temperature adjustment`;
     } else if (project.id === "smart-city-platform") {
       return `
-The Skoda Vision Platform represents an innovative automotive interface solution designed for next-generation vehicles. This comprehensive platform integrates advanced connectivity features, intuitive user interfaces, and smart vehicle management systems that enhance the driving experience while maintaining Skoda's design philosophy.
+HMI - SKODA Vision E Concept: Next-Generation Automotive Interface Design
 
-## Project Challenge
+Participating in the Skoda Vision E project, I developed innovative scenarios to enhance the driving experience of modern vehicles. I designed and presented motion graphics that perfectly align with Skoda's distinctive design language, creating a seamless and engaging user interface for the future of automotive technology.
 
-Modern automotive industry faces challenges in creating seamless digital experiences that enhance driver safety and comfort without overwhelming users with complex technology. Traditional vehicle interfaces often lack intuitive design and fail to integrate smoothly with users' digital lifestyles. The challenge was to develop a vision platform that could integrate various vehicle systems while maintaining Skoda's design philosophy and providing intuitive interaction for drivers of all technical backgrounds.
+## Project Overview
 
-## Design Solution
+The SKODA Vision E Concept represents a revolutionary approach to automotive Human-Machine Interface (HMI) design. This project focused on reimagining how drivers and passengers interact with vehicle systems, particularly in the context of autonomous and semi-autonomous driving scenarios.
 
-I developed a user-centric design approach that prioritizes safety, accessibility, and seamless connectivity for Skoda vehicle users.
+## My Role and Solution
 
-### Integrated Vehicle Interface System
-The platform features a comprehensive interface that consolidates various vehicle functions - navigation, entertainment, climate control, and vehicle diagnostics - into a single, intuitive system that enables effortless interaction while maintaining focus on driving safety.
+As the HMI designer for the SKODA Vision E Concept, I was responsible for creating intuitive interface designs and developing comprehensive user scenarios that would define the future of in-vehicle experiences.
 
-### Smart Connectivity Features
-Advanced connectivity tools provide seamless integration with smartphones and smart home devices, allowing drivers to maintain their digital lifestyle while ensuring all interactions prioritize safety and minimize distraction.
+### Scenario Development and User Experience Design
 
-### Adaptive Interface Design
-The platform's adaptive design adjusts to different driving conditions and user preferences. The interface can be customized based on individual driver needs while preserving Skoda's distinctive brand identity and design consistency.
+I devised a wide variety of scenarios specifically designed to improve the driving experience of modern vehicles. These scenarios considered different use cases, from traditional driving to fully autonomous modes, ensuring that the interface remains relevant and useful across all driving contexts.
 
-### Safety-First Design Philosophy
-Understanding that automotive interfaces require the highest safety standards, the platform was designed with large touch targets, clear visual hierarchy, and voice control integration to minimize driver distraction and enhance overall safety.
+### Motion Design and Brand Integration
 
-## Project Impact
+Working closely with Skoda's design team, I created motion design elements that are perfectly suited to Skoda's established design language. The animations and transitions were crafted to feel natural and intuitive while maintaining the brand's sophisticated and modern aesthetic.
 
-The Skoda Vision Platform successfully delivered enhanced driver experience with 40% improvement in user interaction efficiency, 35% reduction in driver distraction incidents, and 95% user satisfaction ratings. The platform's intuitive design has been adopted across multiple Skoda vehicle models, providing consistent and seamless connectivity experiences.
+## Various Activities for Autonomous Vehicles
+
+In the case of Skoda's Vision E, the concept featured an expansive display that extended from the driver's position to the passenger seat, creating an immersive digital environment that transforms the entire cabin experience.
+
+This wide-format display enabled us to present a comprehensive range of activities and services, including:
+
+### Integrated Service Applications
+- **Ticket Reservation Systems**: Seamless booking for entertainment, travel, and events
+- **Information Services**: Real-time access to relevant data and updates  
+- **E-Book Platform**: Digital reading experiences optimized for automotive environments
+- **Payment Service Integration**: Secure and convenient transaction capabilities
+
+### Location-Based Tourism Services
+
+One of the most well-received features was the "Touring On Trip" service, which provides location-based recommendations for characteristic local destinations and services. This innovative feature received significant positive feedback for its ability to enhance travel experiences by connecting passengers with unique local opportunities and attractions.
+
+The service intelligently suggests points of interest, local restaurants, cultural sites, and unique experiences based on the vehicle's current location and route, transforming every journey into an opportunity for discovery and exploration.
+
+## Key Achievements and Innovation
+
+The SKODA Vision E Concept successfully demonstrated how automotive interfaces can evolve beyond traditional vehicle controls to become comprehensive lifestyle platforms. The project showcased the potential for vehicles to serve as mobile entertainment and service hubs while maintaining safety and usability standards.
 
 ## Key Features
 
-• **Intuitive Vehicle Controls**: Streamlined interface for accessing all vehicle functions with minimal distraction
-• **Smart Connectivity**: Seamless integration with smartphones, smart home devices, and Skoda digital services
-• **Voice Command Integration**: Hands-free control for safe interaction while driving
-• **Personalized Experience**: Customizable interface that adapts to individual driver preferences
-• **Safety-Focused Design**: Interface designed to minimize distraction and enhance driving safety
-• **Skoda Brand Integration**: Consistent design language that reflects Skoda's automotive heritage and innovation`;
+• **Extended Display Technology**: Wide-format screen spanning driver and passenger areas for immersive experiences
+• **Scenario-Based Interface Design**: Multiple user scenarios optimized for different driving modes and contexts
+• **Motion Design Integration**: Smooth animations and transitions aligned with Skoda's design language
+• **Location-Based Services**: Intelligent recommendations for local attractions and services  
+• **Integrated Service Platform**: Comprehensive apps for entertainment, information, and commerce
+• **Autonomous-Ready Design**: Interface designed for both traditional and autonomous driving scenarios`;
     } else if (project.id === "made-project") {
       return `
 M.A.D.E. Project: Lead Designer Delivering User-Centered Solutions and Business Performance (Challenge and Learning-Focused)
@@ -254,6 +344,30 @@ As lead designer, I oversaw the overall user experience (UX) of the service, whi
 **Securing Ad Spend and Live Experiments**: Through the acquired advertisers, I secured approximately 50 million KRW in ad spend to conduct live experiments through actual advertising campaign operations. This allowed us to verify the service's marketability and core hypotheses.
 
 **Rapid Reflection of Product User Feedback**: I led user-centered rapid iterations by directly meeting with advertiser and marketer users to quickly collect in-depth feedback and reflect it in product improvement directions.
+
+## Ranking System 
+
+A digital advertising marketing solution based on AI algorithms that connects advertisers and marketers and ranks revenue-based ROAS to create the best marketing plan for advertisers.
+
+## Project - Project Architecture
+
+Gain and refine various raw data on advertisers' products to create digital advertising campaigns such as Google/Facebook/Naver. AI automatically generates ads at specific intervals and organizes advertising campaigns based on efficiency.
+
+Finally, we used the Multi-Armed Bandit model to recommend advertising campaigns in real time and automatically create recommended campaigns to achieve maximum advertising efficiency. To that end, we started the project in two groups: the data science team and the web team.
+
+As a PM, I was in charge of coordinating the schedule between the web development team and the data science team, securing and selecting UX data necessary for the situation, and leading the design planning.
+
+## IA Information Structure Chart & Flow Chart
+
+After defining requirements and functions with data science and web team members, we created a screen design IA information structure diagram. As users are divided into advertisers and marketers, we created an information structure diagram considering the perspective of the two users.
+
+## Screen Design and Design System ~ Screen Design
+
+Based on the information structure diagram, the overall screen was designed, and like one designer in the team, we designed a basic design system that includes common components such as buttons, input windows, and warning phrases. Later, based on the design system, we quickly moved to screen design and reduced development time by aligning it with web requirements in real time.
+
+## Solution Result
+
+A total of more than 40 screens appeared on the web screen divided into advertisers and marketers two sides. Advertisers have 18 screens in total, including screens to create ads and check the performance of ads, and 22 screens in total, including those to link marketing accounts, receive ads, conduct marketing, and verify performance.
 
 ## Key Achievements and Learning
 
@@ -297,6 +411,46 @@ This project provided me with valuable experience in leading user-centered desig
 • **Real-Time Campaign Monitoring**: Comprehensive dashboard for tracking campaign performance and ROI
 • **User Research Integration**: Deep user insights driving platform development and feature prioritization
 • **Rapid Iteration Framework**: Agile approach enabling quick response to user feedback and market changes`;
+    } else if (project.id === "b2b-saas-project") {
+      return `
+B2B SaaS AI Solution: Enterprise Data Analytics Platform
+
+This comprehensive B2B SaaS solution provides enterprise clients with powerful real-time data monitoring and AI-driven insight generation capabilities. The platform combines advanced analytics with intuitive user experience design to help businesses make data-driven decisions and detect anomalies automatically.
+
+## Project Overview
+
+The project focuses on delivering sophisticated data analytics tools that transform complex enterprise data into actionable insights. By leveraging AI algorithms and predictive analytics, the platform enables organizations to monitor their operations in real-time and proactively address potential issues before they impact business performance.
+
+## My Role and Solution
+
+As the lead designer for this enterprise solution, I was responsible for creating an intuitive and powerful interface that could handle complex data visualization while remaining accessible to users across different technical skill levels.
+
+## Real-time Data Dashboard
+
+Our platform delivers comprehensive real-time data from companies nationwide through an intuitive dashboard interface. 
+
+We developed a sophisticated monitoring system that presents critical, time-sensitive data in a clear, at-a-glance format. The dashboard enables users to track important metrics as they change in real-time, while also providing historical data recording and comparison capabilities over extended periods.
+
+This real-time approach ensures that business leaders can respond immediately to changing conditions and make informed decisions based on the most current information available.
+
+## Insight Derivation Tools
+
+The platform provides powerful analytical tools that enable users to extract meaningful insights through flexible data combination options.
+
+Users can select from various data sources and combine them in customizable ways to uncover hidden patterns, trends, and correlations that might not be apparent when viewing data in isolation. This approach empowers business analysts and decision-makers to explore their data from multiple perspectives and discover actionable insights that drive strategic planning.
+
+## Key Achievements and Learning
+
+The B2B SaaS AI Solution successfully delivered enhanced data visibility and decision-making capabilities for enterprise clients, resulting in improved operational efficiency and proactive issue resolution across multiple industry verticals.
+
+## Key Features
+
+• **Real-Time Data Monitoring**: Comprehensive dashboard displaying live business metrics and performance indicators
+• **AI-Powered Analytics**: Advanced algorithms for predictive analytics and automated anomaly detection
+• **Customizable Data Combinations**: Flexible tools allowing users to combine different data sources for deeper insights
+• **Historical Data Tracking**: Long-term data storage with comparison and trend analysis capabilities
+• **Enterprise Integration**: Seamless connection with existing business systems and data sources
+• **Scalable Architecture**: Platform designed to handle large-scale enterprise data processing requirements`;
     }
     
     return `
@@ -307,42 +461,18 @@ This project represents a comprehensive approach to modern design challenges, fo
 The ${project.title} project showcases my ability to tackle complex design problems while maintaining a clear focus on user needs and business objectives. Through careful research, iterative design, and collaborative development, this project demonstrates the full spectrum of modern UX/UI design practices.`;
   };
 
-  const projectContent = getProjectContent() + `
+  const projectContent = getProjectContent();
 
-## Design Process
-
-### Research & Discovery
-I began this project with extensive user research to understand the target audience's needs, pain points, and behavioral patterns. This foundation informed every subsequent design decision and ensured the final product would resonate with users.
-
-### Ideation & Conceptualization
-Multiple design concepts were explored through sketching, wireframing, and rapid prototyping. Each iteration was evaluated against user requirements and technical constraints to identify the most promising direction.
-
-### Design Development
-The chosen concept was refined through high-fidelity mockups and interactive prototypes. Special attention was paid to accessibility, responsive design, and consistency across all touchpoints.
-
-### Testing & Validation
-User testing sessions provided valuable feedback that shaped the final design. Multiple rounds of testing ensured the solution met both user expectations and business goals.
-
-## Key Features
-
-• **Intuitive Navigation**: Streamlined user flows that guide users naturally through the experience
-• **Responsive Design**: Optimized for all device types and screen sizes
-• **Accessibility**: WCAG compliant design ensuring inclusive user experience
-• **Performance**: Optimized for fast loading and smooth interactions
-• **Scalability**: Design system approach allowing for future growth and modifications
-
-## Technical Implementation
-
-The project was developed using modern web technologies and best practices. Close collaboration with the development team ensured that the design vision was faithfully translated into the final product.
-
-## Results & Impact
-
-The project delivered measurable improvements in user engagement, conversion rates, and overall user satisfaction. These outcomes validated the design approach and demonstrated the value of user-centered design principles.
-
-## Lessons Learned
-
-This project reinforced the importance of continuous user feedback throughout the design process. It also highlighted the value of close collaboration between design and development teams in achieving optimal results.
-  `;
+  // Function to render bold text from **text** markdown
+  const renderTextWithBold = (text: string) => {
+    const parts = text.split(/(\*\*[^*]+\*\*)/g);
+    return parts.map((part, index) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        return <strong key={index}>{part.slice(2, -2)}</strong>;
+      }
+      return part;
+    });
+  };
 
   return (
     <div className="flex h-full relative">
@@ -410,6 +540,19 @@ This project reinforced the importance of continuous user feedback throughout th
                   <Calendar className="h-4 w-4" />
                   {project.year}
                 </div>
+                {project.id === "play2-project" && (
+                  <div className="flex items-center gap-1">
+                    <ExternalLink className="h-4 w-4" />
+                    <a 
+                      href="https://apps.apple.com/kw/app/pl-y2/id1159328039?l=en-GB" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      App Store
+                    </a>
+                  </div>
+                )}
               </div>
 
               <div className="flex items-center gap-2">
@@ -423,6 +566,8 @@ This project reinforced the importance of continuous user feedback throughout th
               </div>
             </div>
           </motion.div>
+
+
 
           {/* Featured image */}
           <motion.div 
@@ -523,6 +668,27 @@ This project reinforced the importance of continuous user feedback throughout th
                   </p>
                 </Card>
               </>
+            ) : project.id === "play2-project" ? (
+              <>
+                <Card className="p-4">
+                  <h3 className="font-medium mb-2">Challenge</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Traditional ticketing systems with poor real-time availability and complex booking processes.
+                  </p>
+                </Card>
+                <Card className="p-4">
+                  <h3 className="font-medium mb-2">Solution</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Serverless cloud-based real-time reservation platform with data-driven UX design.
+                  </p>
+                </Card>
+                <Card className="p-4">
+                  <h3 className="font-medium mb-2">Impact</h3>
+                  <p className="text-sm text-muted-foreground">
+                    70% improvement in booking completion rates and 85% user satisfaction score.
+                  </p>
+                </Card>
+              </>
             ) : (
               <>
                 <Card className="p-4">
@@ -557,9 +723,38 @@ This project reinforced the importance of continuous user feedback throughout th
             <div className="whitespace-pre-wrap text-base leading-relaxed text-foreground space-y-4">
               {projectContent.split('\n\n').map((paragraph, index) => {
                 if (paragraph.startsWith('## ')) {
+                  const heading = paragraph.replace('## ', '');
+                  // Add Process Flow before UX Research section for PLAY2 project
+                  if (project.id === "play2-project" && heading === '1. UX Research') {
+                    return (
+                      <div key={index}>
+                        <motion.div 
+                          className="mb-8"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                        >
+                          <ProcessFlow />
+                        </motion.div>
+                        <h2 className="text-2xl font-bold mt-8 mb-4">
+                          {heading}
+                        </h2>
+                      </div>
+                    );
+                  }
+                  // Add Problem Table after Problem Definition heading for PLAY2 project
+                  if (project.id === "play2-project" && heading === '2. Problem Definition') {
+                    return (
+                      <div key={index}>
+                        <h2 className="text-2xl font-bold mt-8 mb-4">
+                          {heading}
+                        </h2>
+                      </div>
+                    );
+                  }
                   return (
                     <h2 key={index} className="text-2xl font-bold mt-8 mb-4">
-                      {paragraph.replace('## ', '')}
+                      {heading}
                     </h2>
                   );
                 }
@@ -575,14 +770,390 @@ This project reinforced the importance of continuous user feedback throughout th
                   return (
                     <ul key={index} className="list-disc list-inside space-y-2 ml-4">
                       {listItems.map((item, itemIndex) => (
-                        <li key={itemIndex}>{item.replace('• ', '')}</li>
+                        <li key={itemIndex}>{renderTextWithBold(item.replace('• ', ''))}</li>
                       ))}
                     </ul>
                   );
                 }
+                // Handle PLAY2 project specific content with images
+                if (project.id === "play2-project") {
+                  // Add image after UX Research section
+                                     if (paragraph.includes("300,000 won per month")) {
+                     return (
+                       <div key={index}>
+                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
+                        <motion.div 
+                          className="my-6 rounded-lg overflow-hidden"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                        >
+                          <ImageWithFallback
+                            src="/images/play2.png"
+                            alt="PLAY2 User Research Data Analysis"
+                            className="w-full h-auto object-cover"
+                          />
+                        </motion.div>
+                      </div>
+                    );
+                  }
+                  
+                  // Add problem table after Problem Definition
+                                     if (paragraph.includes("The causes of the ticketing experience")) {
+                     return (
+                       <div key={index}>
+                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
+                        <motion.div 
+                          className="my-8"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.4 }}
+                        >
+                          <ProblemTable />
+                        </motion.div>
+                      </div>
+                    );
+                  }
+                  
+                  // Add image after Solution intro
+                                     if (paragraph.includes("design language of the existing PL@Y2")) {
+                     return (
+                       <div key={index}>
+                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
+                        <motion.div 
+                          className="my-6 rounded-lg overflow-hidden"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                        >
+                          <ImageWithFallback
+                            src="/images/play1.png"
+                            alt="PLAY2 Solution Overview"
+                            className="w-full h-auto object-cover"
+                          />
+                        </motion.div>
+                      </div>
+                    );
+                  }
+                  
+                  // Add images after Pre Open solution
+                                     if (paragraph.includes("casting-first selection")) {
+                     return (
+                       <div key={index}>
+                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
+                        <motion.div 
+                          className="my-6 grid grid-cols-1 md:grid-cols-2 gap-4"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                        >
+                          <div className="rounded-lg overflow-hidden">
+                            <ImageWithFallback
+                              src="/images/play4.png"
+                              alt="PLAY2 Pre-Open Feature"
+                              className="w-full h-auto object-cover"
+                            />
+                          </div>
+                          <div className="rounded-lg overflow-hidden">
+                            <ImageWithFallback
+                              src="/images/play3.png"
+                              alt="PLAY2 Casting Selection"
+                              className="w-full h-auto object-cover"
+                            />
+                          </div>
+                        </motion.div>
+                      </div>
+                    );
+                  }
+                  
+                  // Add image after Real Time Information solution
+                                     if (paragraph.includes("rounds they want to see")) {
+                     return (
+                       <div key={index}>
+                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
+                        <motion.div 
+                          className="my-6 rounded-lg overflow-hidden"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                        >
+                          <ImageWithFallback
+                            src="/images/play5.png"
+                            alt="PLAY2 Real-time Information"
+                            className="w-full h-auto object-cover"
+                          />
+                        </motion.div>
+                      </div>
+                    );
+                  }
+                  
+                  // Add images after One Touch Payment solution
+                                     if (paragraph.includes("payment fails")) {
+                     return (
+                       <div key={index}>
+                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
+                        <motion.div 
+                          className="my-6 grid grid-cols-1 md:grid-cols-2 gap-4"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                        >
+                          <div className="rounded-lg overflow-hidden">
+                            <ImageWithFallback
+                              src="/images/play6.png"
+                              alt="PLAY2 One Touch Payment"
+                              className="w-full h-auto object-cover"
+                            />
+                          </div>
+                          <div className="rounded-lg overflow-hidden">
+                            <ImageWithFallback
+                              src="/images/play2.png"
+                              alt="PLAY2 Payment Flow"
+                              className="w-full h-auto object-cover"
+                            />
+                          </div>
+                        </motion.div>
+                      </div>
+                    );
+                  }
+                }
+                
+                // Handle M.A.D.E. project specific content with images
+                if (project.id === "made-project") {
+                  // Add image after Project Architecture section
+                                     if (paragraph.includes("data science team and the web team")) {
+                     return (
+                       <div key={index}>
+                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
+                        <motion.div 
+                          className="my-6 rounded-lg overflow-hidden"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                        >
+                          <ImageWithFallback
+                            src="/images/made1.png"
+                            alt="M.A.D.E. Project Architecture"
+                            className="w-full h-auto object-cover"
+                          />
+                        </motion.div>
+                      </div>
+                    );
+                  }
+                  
+                  // Add image after IA Information Structure Chart section
+                                     if (paragraph.includes("perspective of the two users")) {
+                     return (
+                       <div key={index}>
+                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
+                        <motion.div 
+                          className="my-6 rounded-lg overflow-hidden"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                        >
+                          <ImageWithFallback
+                            src="/images/made3.png"
+                            alt="M.A.D.E. IA Information Structure Chart"
+                            className="w-full h-auto object-cover"
+                          />
+                        </motion.div>
+                      </div>
+                    );
+                  }
+                  
+                  // Add image after Screen Design section
+                                     if (paragraph.includes("aligning it with web requirements in real time")) {
+                     return (
+                       <div key={index}>
+                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
+                        <motion.div 
+                          className="my-6 rounded-lg overflow-hidden"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                        >
+                          <ImageWithFallback
+                            src="/images/made5.png"
+                            alt="M.A.D.E. Screen Design and Design System"
+                            className="w-full h-auto object-cover"
+                          />
+                        </motion.div>
+                      </div>
+                    );
+                  }
+                  
+                  // Add image after Solution Result section
+                                     if (paragraph.includes("conduct marketing, and verify performance")) {
+                     return (
+                       <div key={index}>
+                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
+                        <motion.div 
+                          className="my-6 rounded-lg overflow-hidden"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                        >
+                          <ImageWithFallback
+                            src="/images/made6.png"
+                            alt="M.A.D.E. Solution Result"
+                            className="w-full h-auto object-cover"
+                          />
+                        </motion.div>
+                      </div>
+                    );
+                  }
+                }
+                
+                // Handle B2B SaaS project specific content with images
+                if (project.id === "b2b-saas-project") {
+                  // Add image after Real-time Data Dashboard section
+                                     if (paragraph.includes("most current information available")) {
+                     return (
+                       <div key={index}>
+                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
+                        <motion.div 
+                          className="my-6 rounded-lg overflow-hidden"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                        >
+                          <ImageWithFallback
+                            src="/images/dataanalytics2.png"
+                            alt="B2B SaaS Real-time Data Dashboard"
+                            className="w-full h-auto object-cover"
+                          />
+                        </motion.div>
+                      </div>
+                    );
+                  }
+                  
+                  // Add image after Insight Derivation Tools section
+                                     if (paragraph.includes("drive strategic planning")) {
+                     return (
+                       <div key={index}>
+                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
+                        <motion.div 
+                          className="my-6 rounded-lg overflow-hidden"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                        >
+                          <ImageWithFallback
+                            src="/images/dataanalytics3.png"
+                            alt="B2B SaaS Insight Derivation Tools"
+                            className="w-full h-auto object-cover"
+                          />
+                        </motion.div>
+                      </div>
+                    );
+                  }
+                }
+                
+                // Handle HMI - SKODA Vision E Concept project specific content with images  
+                if (project.id === "smart-city-platform") {
+                  // Add images after Motion Design and Brand Integration section
+                                     if (paragraph.includes("sophisticated and modern aesthetic")) {
+                     return (
+                       <div key={index}>
+                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
+                        <motion.div 
+                          className="my-6 space-y-4"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                        >
+                          <div className="rounded-lg overflow-hidden">
+                            <ImageWithFallback
+                              src="/images/skodavision1.png"
+                              alt="SKODA Vision E Concept - HMI Design"
+                              className="w-full h-auto object-cover"
+                            />
+                          </div>
+                          <div className="rounded-lg overflow-hidden">
+                            <ImageWithFallback
+                              src="/images/skodavision4.png"
+                              alt="SKODA Vision E Concept - Interface Design"
+                              className="w-full h-auto object-cover"
+                            />
+                          </div>
+                        </motion.div>
+                      </div>
+                    );
+                  }
+                  
+                  // Add image after Location-Based Tourism Services section
+                                     if (paragraph.includes("opportunity for discovery and exploration")) {
+                     return (
+                       <div key={index}>
+                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
+                        <motion.div 
+                          className="my-6 rounded-lg overflow-hidden"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                        >
+                          <ImageWithFallback
+                            src="/images/skodavision5.png"
+                            alt="SKODA Vision E Concept - Touring On Trip Service"
+                            className="w-full h-auto object-cover"
+                          />
+                        </motion.div>
+                      </div>
+                    );
+                  }
+                }
+                
+                // Handle PSA project specific content with images
+                if (project.id === "creative-portfolio") {
+                  // Add all 4 images after outcome section
+                                     if (paragraph.includes("innovative, user-centered design solutions")) {
+                     return (
+                       <div key={index}>
+                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
+                        <motion.div 
+                          className="my-6 space-y-6"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                        >
+                          <div className="rounded-lg overflow-hidden">
+                            <ImageWithFallback
+                              src="/images/psa1.png"
+                              alt="PSA Smartwatch and Mobile App Interface Design"
+                              className="w-full h-auto object-cover"
+                            />
+                          </div>
+                          <div className="rounded-lg overflow-hidden">
+                            <ImageWithFallback
+                              src="/images/psa2.png"
+                              alt="PSA Login Interface and Vehicle Selection"
+                              className="w-full h-auto object-cover"
+                            />
+                          </div>
+                          <div className="rounded-lg overflow-hidden">
+                            <ImageWithFallback
+                              src="/images/psa3.png"
+                              alt="PSA Integrated Smartwatch and Mobile Experience"
+                              className="w-full h-auto object-cover"
+                            />
+                          </div>
+                          <div className="rounded-lg overflow-hidden">
+                            <ImageWithFallback
+                              src="/images/psa4.png"
+                              alt="PSA Gesture Control and Autonomous Parking Features"
+                              className="w-full h-auto object-cover"
+                            />
+                          </div>
+                        </motion.div>
+                      </div>
+                    );
+                  }
+                }
+                
                 return (
                   <p key={index} className="mb-4">
-                    {paragraph}
+                    {renderTextWithBold(paragraph)}
                   </p>
                 );
               })}

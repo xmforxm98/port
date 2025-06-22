@@ -24,17 +24,12 @@ const mainProjects: ProjectData[] = [
           id: "play2-project",
           title: "PL@Y2",
           description: "Live Event Ticketing Solution featuring ticket transfer market and reservation prototype with 9M user data analysis and innovative UX solutions.",
-          imageUrl: "/images/play1.png",
+          imageUrl: "/images/play0.png",
           images: [
             "/images/play0.png",
             "/images/play1.png",
             "/images/play2.png",
-            "/images/play3.png",
-            "/images/play4.png",
-            "/images/play5.png",
-            "/images/play6.png",
-            "/images/play7.png",
-            "/images/play8.png"
+            "/images/play5.png"
           ],
           year: "2023",
           tags: ["UX/UI Design", "Sales Management", "Event Platform", "User Research"],
@@ -49,8 +44,7 @@ const mainProjects: ProjectData[] = [
             "/images/made0.jpg",
             "/images/made1.png",
             "/images/made2.png",
-            "/images/made3.png",
-            "/images/made4.png"
+            "/images/made3.png"
           ],
           year: "2022",
           tags: ["Lead Design", "Product Management", "Digital Marketing", "UX Research"],
@@ -81,7 +75,7 @@ const mainProjects: ProjectData[] = [
         },
         {
           id: "smart-city-platform",
-          title: "Skoda Vision Platform",
+          title: "HMI - SKODA Vision E Concept",
           description: "An innovative automotive vision platform for Skoda featuring next-generation vehicle interface design and smart connectivity solutions.",
           imageUrl: "/images/skodavision1.png",
           images: [
@@ -129,11 +123,11 @@ const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ isSideProjects, onDis
                 transition={{ delay: index * 0.05 }}
                 whileHover={{ y: -5 }}
               >
-                <Card className="overflow-hidden group flex flex-col h-full bg-white/5 backdrop-blur-sm border-white/10">
-                  <div 
-                    className="relative overflow-hidden h-48 cursor-pointer"
-                    onClick={() => handleOpenProject(project)}
-                  >
+                <Card 
+                  className="overflow-hidden group flex flex-col h-full bg-white/5 backdrop-blur-sm border-white/10 cursor-pointer transition-all duration-300 hover:bg-white/10 hover:border-white/20"
+                  onClick={() => handleOpenProject(project)}
+                >
+                  <div className="relative overflow-hidden h-48">
                     <ImageWithFallback 
                       src={project.imageUrl} 
                       alt={project.title}
@@ -147,10 +141,7 @@ const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ isSideProjects, onDis
                   </div>
                   <CardContent className="p-4 flex-1 flex flex-col">
                     <div className="flex-1">
-                      <h3 
-                        className="font-medium mb-1 cursor-pointer hover:text-primary"
-                        onClick={() => handleOpenProject(project)}
-                      >
+                      <h3 className="font-medium mb-1 group-hover:text-primary transition-colors duration-200">
                         {project.title}
                       </h3>
                       <p className="text-sm text-muted-foreground mb-2">{project.description}</p>
@@ -165,7 +156,11 @@ const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({ isSideProjects, onDis
                         <Button 
                           size="sm" 
                           variant="ghost"
-                          onClick={() => handleNavigateToProjectChat(project)}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleNavigateToProjectChat(project);
+                          }}
+                          className="hover:bg-primary/20"
                         >
                          Ask Chatbot
                          <MessageSquare size={16} className="ml-2"/>

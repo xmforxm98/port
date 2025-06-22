@@ -131,31 +131,44 @@ const getProjectResponses = (project: ProjectData) => {
 
   if (project.title === "PL@Y2") {
     responses.welcome.options.push(
-      { id: "ux", text: "UX Research", action: "ux" },
-      { id: "tools", text: "Design Tools", action: "tools" },
-      { id: "data", text: "9M User Data", action: "data" }
+      { id: "research", text: "UX Research Process", action: "research" },
+      { id: "solutions", text: "3 Core Solutions", action: "solutions" },
+      { id: "data", text: "9M User Data Analysis", action: "data" },
+      { id: "performance", text: "Performance Results", action: "performance" }
     );
-    responses.ux = {
-      message: "Our UX research involved extensive user interviews, journey mapping, and usability testing with over 1,000 participants.\n\n[IMAGE:play2-7.png]\n\nWe identified key pain points in the ticket booking process and developed three innovative solutions: Pre-Open notifications, Real-time seat availability, and One-touch payment system. This research led to a 70% improvement in booking completion rates.",
+    responses.research = {
+      message: "I planned and executed quantitative/standard research with 2 team members using Power BI, Kibana, and Elastic studies to analyze PL@Y2's 9 million user behavior data.\n\n[IMAGE:play2.png]\n\nWe conducted in-depth surveys and interviews with 38 event ticket buyers. The 9 million data include user-entered reviews and ticketing data from Interpark, Kakao and NHN, Korea's leading corporate ticketing companies.\n\n**Key Discovery**: The main users were women between ages 20-30 who watched the same work more than twice and spent an average of 300,000 won per month on cultural activities more than three times a week.",
       options: [
-        { id: "tools", text: "Design Tools", action: "tools" },
-        { id: "data", text: "9M User Data", action: "data" },
+        { id: "solutions", text: "3 Core Solutions", action: "solutions" },
+        { id: "data", text: "9M User Data Analysis", action: "data" },
+        { id: "performance", text: "Performance Results", action: "performance" },
         { id: "back", text: "Back to main menu", action: "welcome" }
       ]
     };
-    responses.tools = {
-      message: "The design process utilized industry-leading tools including Figma for interface design and prototyping, Framer for interactive prototypes and animations, Photoshop for image editing and visual assets, and Illustrator for vector graphics and iconography. This comprehensive toolkit enabled rapid iteration and high-fidelity prototypes.",
+    responses.solutions = {
+      message: "We developed three innovative UX solutions to address critical pain points:\n\n**1. Pre-Open Booking**: Users can access ticket booking one hour before official opening, eliminating macro program advantages and enabling casting-first selection.\n\n[IMAGE:play4.png|play3.png]\n\n**2. Real-Time Information**: Shows real-time visitor counts and seat selection data, allowing strategic booking decisions.\n\n[IMAGE:play5.png]\n\n**3. One-Touch Payment**: Temporary data storage in PL@Y2 servers with sequential PG processing to solve server problems and enable immediate alternative seat selection if payment fails.\n\n[IMAGE:play6.png|play2.png]",
       options: [
-        { id: "ux", text: "UX Research", action: "ux" },
-        { id: "data", text: "9M User Data", action: "data" },
+        { id: "research", text: "UX Research Process", action: "research" },
+        { id: "data", text: "9M User Data Analysis", action: "data" },
+        { id: "performance", text: "Performance Results", action: "performance" },
         { id: "back", text: "Back to main menu", action: "welcome" }
       ]
     };
     responses.data = {
-      message: "Analysis of 9 million user interactions revealed critical insights about booking behaviors, peak usage patterns, and user preferences. We discovered that users abandon bookings primarily due to complex checkout processes and unclear seat availability. This data informed our design decisions and led to a streamlined user experience with 85% user satisfaction.",
+      message: "Through comprehensive analysis of 9 million user behavior data from 2020-2022, we identified three critical environmental constraints:\n\n**Unstable Server Environment**: On-premise + IaaS setup unable to respond actively with high possibility of server problems and low efficiency at high cost.\n\n**Ticket Purchasing Environment**: 30+ step complicated procedures with frequent macro usage, low security, and poor global accessibility.\n\n**One-way Information Provision**: Lack of real-time information for seats already selected and paid for during payment process.\n\nThis data analysis informed every design decision and solution development.",
       options: [
-        { id: "ux", text: "UX Research", action: "ux" },
-        { id: "tools", text: "Design Tools", action: "tools" },
+        { id: "research", text: "UX Research Process", action: "research" },
+        { id: "solutions", text: "3 Core Solutions", action: "solutions" },
+        { id: "performance", text: "Performance Results", action: "performance" },
+        { id: "back", text: "Back to main menu", action: "welcome" }
+      ]
+    };
+    responses.performance = {
+      message: "The PL@Y2 platform delivered exceptional results:\n\n**Business Validation**: Successfully signed contracts with major agencies and launched 3 musical performances in Korea, generating actual revenue.\n\n**User Experience Metrics**:\n• 70% improvement in booking completion rates\n• 85% user satisfaction score\n• 45% reduction in customer support tickets\n• Successful high-traffic handling during major event releases\n\n**Technical Achievement**: Implemented serverless cloud-based real-time ticket reservation solution that became a benchmark for innovative ticketing solutions in Korea, serving millions of users.\n\n**App Store Launch**: The PL@Y2 app is available on the App Store with features including photo calendar, ticket transfer market, and verified ticket trading.\n🔗 [Download on App Store](https://apps.apple.com/kw/app/pl-y2/id1159328039?l=en-GB)",
+      options: [
+        { id: "research", text: "UX Research Process", action: "research" },
+        { id: "solutions", text: "3 Core Solutions", action: "solutions" },
+        { id: "data", text: "9M User Data Analysis", action: "data" },
         { id: "back", text: "Back to main menu", action: "welcome" }
       ]
     };
@@ -236,7 +249,7 @@ function getOverviewMessage(project: ProjectData): string {
     case "B2B SaaS AI Solution":
       return "This B2B SaaS platform provides real-time data monitoring and AI-powered insights for enterprise clients. The solution includes predictive analytics, automated anomaly detection, customizable dashboards, and intelligent alert systems.\n\n**Real-time Data Processing & Analytics**\n[IMAGE:dataanalytics2.png]\n\n**Insight Derivation Tool & Dashboard**\n[IMAGE:dataanalytics3.png]\n\nIt's designed to help businesses make data-driven decisions faster and more accurately with intuitive visualizations and automated alert systems.";
     case "PL@Y2":
-      return "PL@Y2 is a comprehensive live event ticketing solution featuring both a ticket transfer market and reservation prototype. The 18-week project included extensive UX research with 9 million user data points, resulting in innovative features like Pre-Open notifications, real-time information systems, and one-touch payment solutions.\n\n**User Experience Design Process**\n[IMAGE:play2-7.png]\n\nThe project focused on solving critical pain points in the ticket booking experience through data-driven design decisions and comprehensive user research methodologies.";
+      return "PL@Y2 is a comprehensive live event ticketing solution featuring both a ticket transfer market and reservation prototype. The 18-week project included extensive UX research with 9 million user data points, resulting in innovative features like Pre-Open notifications, real-time information systems, and one-touch payment solutions.\n\n**User Experience Design Process**\n[IMAGE:play7.png]\n\nThe project focused on solving critical pain points in the ticket booking experience through data-driven design decisions and comprehensive user research methodologies.";
     case "PSA":
     case "PSA Integrated Vehicle Management & Smartwatch App":
       return "PSA Integrated Vehicle Management and Smartwatch App: Proposing Next-Generation Mobility Experience\n\nKeywords: Smartwatch Interaction, Autonomous Driving Interaction, HMI\n\n[IMAGE:skodavision1.png]\n\nExisting vehicle management applications suffered from an unintuitive interface and complex feature accessibility, leading to very low driver utilization. As an intern designer, I proposed a next-generation interaction design and smartwatch integration experience for the PSA vehicle management app, focusing on solving these issues and proactively proposing an innovative user experience for the new era of mobility.\n\n**HMI Design Concepts**\n[IMAGE:skodavision2.png][IMAGE:skodavision3.png]";
@@ -256,7 +269,7 @@ function getTechMessage(project: ProjectData): string {
     case "B2B SaaS AI Solution":
       return "Built with React/TypeScript frontend, Python/FastAPI backend, PostgreSQL database, TensorFlow/PyTorch for AI models, Apache Kafka for real-time data streaming, Redis for caching, Docker for containerization, and Kubernetes for orchestration. The platform includes comprehensive monitoring, logging, and security implementations.";
     case "PL@Y2":
-      return "Designed using Figma for interface design, Framer for interactive prototyping, with proposed implementation in React Native for mobile apps and React/Node.js for web platform. The design system includes comprehensive component libraries, design tokens, and accessibility guidelines for scalable development.";
+      return "**Design & Research Technology Stack**:\n• Power BI, Kibana, and Elastic Search for 9M user data analysis\n• Figma for interface design and prototyping\n• Framer for interactive prototypes and animations\n• Advanced user research methodologies with 38 in-depth interviews\n\n**Proposed Technical Implementation**:\n• Serverless cloud architecture for real-time processing\n• React Native for mobile-first ticket booking applications\n• React/Node.js for web platform and admin systems\n• Real-time seat availability APIs and one-touch payment integration\n• Sequential PG (Payment Gateway) processing to solve server bottlenecks\n• Comprehensive design system with component libraries and accessibility guidelines\n\n**Data Analysis Tools**: Integration with major Korean ticketing platforms (Interpark, Kakao, NHN) for comprehensive user behavior analysis and insights.";
     case "PSA":
     case "PSA Integrated Vehicle Management & Smartwatch App":
       return "Automotive HMI development using Qt/QML framework, C++ backend systems, integrated with vehicle CAN bus protocols, gesture recognition using computer vision libraries (OpenCV), smartwatch connectivity APIs, and real-time embedded systems programming for automotive-grade reliability and performance. The smartwatch integration enabled seamless vehicle control through wearable technology with intuitive gestures and voice commands.";
@@ -276,7 +289,7 @@ function getChallengesMessage(project: ProjectData): string {
     case "B2B SaaS AI Solution":
       return "Major challenges involved processing massive amounts of real-time data without latency, ensuring AI model accuracy across different business contexts, creating intuitive visualizations for complex data sets, maintaining 99.9% uptime for mission-critical operations, and implementing robust security measures for sensitive business data.";
     case "PL@Y2":
-      return "Primary challenges included designing for 9 million diverse users with varying technical literacy, creating seamless booking experiences under high-traffic conditions, balancing feature richness with interface simplicity, ensuring accessibility compliance, and coordinating complex stakeholder requirements across different business units.";
+      return "The traditional ticketing industry faced significant challenges in providing users with a seamless, real-time booking experience:\n\n**Unstable Server Environment**: On-premise + IaaS setup unable to respond actively with high possibility of server problems and low efficiency at high cost.\n\n**Complex Ticket Purchasing Environment**: 30+ step complicated procedures with frequent macro usage, low security, and poor global accessibility. PC Web + Mobile Web verification, waiting, agreement, selection, payment processes with secondary tickets unable to be traded.\n\n**One-way Information Provision**: Lack of real-time information for seats already selected and paid for during payment process. Information provided only by session and detailed page images.\n\n**User Experience Challenges**: Designing for 9 million diverse users while solving macro program advantages, creating casting-first selection over date-first selection, and ensuring mobile-first accessibility.";
     case "PSA":
     case "PSA Integrated Vehicle Management & Smartwatch App":
       return "Automotive-specific challenges included ensuring safety-critical interface design, integrating with complex vehicle systems, meeting automotive industry regulations and standards, designing for various lighting conditions and driving scenarios, and creating intuitive controls that don't distract from driving tasks. The challenge was proposing innovative user experiences for autonomous driving features while maintaining driver safety and reducing complex operational burdens.";
@@ -296,7 +309,7 @@ function getResultsMessage(project: ProjectData): string {
     case "B2B SaaS AI Solution":
       return "Delivered 60% reduction in monitoring time for clients, 40% increase in anomaly detection accuracy, 95% customer satisfaction rate, and significant cost savings averaging $100K annually per client. The platform now serves 50+ enterprise clients with 99.9% uptime achievement.";
     case "PL@Y2":
-      return "Achieved 70% improvement in booking completion rates, 85% user satisfaction score, 45% reduction in customer support tickets, and successful handling of peak traffic during major events. The design solutions were implemented across the entire ticketing platform, serving millions of users.";
+      return "The PL@Y2 platform delivered exceptional results across multiple dimensions:\n\n**Business Validation**: Successfully signed contracts with major agencies and launched 3 musical performances in Korea, generating actual revenue and proving business model viability.\n\n**User Experience Metrics**:\n• 70% improvement in booking completion rates\n• 85% user satisfaction score\n• 45% reduction in customer support tickets\n• Successful high-traffic handling during major event releases without system failures\n\n**Research & Development Impact**: Analyzed 9 million user behavior data points from Interpark, Kakao, and NHN (Korea's leading ticketing companies) with Power BI, Kibana, and Elastic studies. Conducted 38 in-depth interviews revealing key user segments: women aged 20-30 spending average 300,000 won monthly on cultural activities.\n\n**Technical Innovation**: Implemented serverless cloud-based real-time ticket reservation solution that became a benchmark for innovative ticketing solutions in Korea, serving millions of users with three core solutions: Pre-Open booking, Real-time information systems, and One-touch payment processing.";
     case "PSA":
     case "PSA Integrated Vehicle Management & Smartwatch App":
       return "Despite being a concept design, this project garnered a highly positive internal response due to its innovative approach and future-oriented user experience proposal. The idea of gesture control via smartwatch integration received high praise for demonstrating the potential for a new kind of vehicle interaction experience for drivers. This project was a valuable opportunity to effectively showcase my ability to understand complex problems and propose innovative, user-centered design solutions that improved user satisfaction by 65% and reduced task completion time by 40%.";
@@ -405,6 +418,44 @@ export function ProjectChatbot({ project }: ProjectChatbotProps) {
 
 
 
+  const renderTextWithBold = (text: string) => {
+    // First handle markdown links [text](url)
+    const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+    const parts = text.split(linkRegex);
+    
+    return parts.map((part, index) => {
+      // Check if this part is a URL (every 3rd element after split)
+      if (index % 3 === 2) {
+        const linkText = parts[index - 1];
+        return (
+          <a 
+            key={index} 
+            href={part} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-primary hover:underline"
+          >
+            {linkText}
+          </a>
+        );
+      }
+      // Skip link text parts (every 2nd element after split)
+      else if (index % 3 === 1) {
+        return null;
+      }
+      // Handle bold text in remaining parts
+      else {
+        const boldParts = part.split(/(\*\*.*?\*\*)/g);
+        return boldParts.map((boldPart, boldIndex) => {
+          if (boldPart.startsWith('**') && boldPart.endsWith('**')) {
+            return <strong key={`${index}-${boldIndex}`}>{boldPart.slice(2, -2)}</strong>;
+          }
+          return <span key={`${index}-${boldIndex}`}>{boldPart}</span>;
+        });
+      }
+    });
+  };
+
   const formatMessage = (text: string) => {
     const processedText = processImageMarkers(text);
     return processedText.map((item, index) => {
@@ -412,7 +463,7 @@ export function ProjectChatbot({ project }: ProjectChatbotProps) {
         const content = item.content;
         return content.split('\n').map((line, lineIndex) => (
           <React.Fragment key={`${index}-${lineIndex}`}>
-            {line}
+            {renderTextWithBold(line)}
             {lineIndex < content.split('\n').length - 1 && <br />}
           </React.Fragment>
         ));
@@ -423,6 +474,10 @@ export function ProjectChatbot({ project }: ProjectChatbotProps) {
               src={`/images/${item.src}`}
               alt={item.alt}
               className="rounded-lg max-w-full h-auto"
+              onError={(e) => {
+                console.error(`Failed to load image: /images/${item.src}`);
+                e.currentTarget.style.display = 'none';
+              }}
             />
           </div>
         );
@@ -433,11 +488,19 @@ export function ProjectChatbot({ project }: ProjectChatbotProps) {
               src={`/images/${item.src1}`}
               alt={item.alt1}
               className="rounded-lg flex-1 h-auto"
+              onError={(e) => {
+                console.error(`Failed to load image: /images/${item.src1}`);
+                e.currentTarget.style.display = 'none';
+              }}
             />
             <img
               src={`/images/${item.src2}`}
               alt={item.alt2}
               className="rounded-lg flex-1 h-auto"
+              onError={(e) => {
+                console.error(`Failed to load image: /images/${item.src2}`);
+                e.currentTarget.style.display = 'none';
+              }}
             />
           </div>
         );
@@ -470,7 +533,24 @@ export function ProjectChatbot({ project }: ProjectChatbotProps) {
     let currentText = '';
     
     for (const line of lines) {
-      // Check for side-by-side images pattern
+      // Check for pipe-separated side-by-side images pattern (e.g., [IMAGE:img1.png|img2.png])
+      const pipeSideBySideMatch = line.match(/\[IMAGE:([^|]+)\|([^\]]+)\]/);
+      if (pipeSideBySideMatch) {
+        if (currentText) {
+          parts.push({ type: 'text', content: currentText.trim() });
+          currentText = '';
+        }
+        parts.push({
+          type: 'image-pair',
+          src1: pipeSideBySideMatch[1],
+          alt1: pipeSideBySideMatch[1].replace('.png', '').replace('.jpg', ''),
+          src2: pipeSideBySideMatch[2],
+          alt2: pipeSideBySideMatch[2].replace('.png', '').replace('.jpg', '')
+        });
+        continue;
+      }
+      
+      // Check for side-by-side images pattern (e.g., [IMAGE:img1.png][IMAGE:img2.png])
       const sideBySideMatch = line.match(/\[IMAGE:([^\]]+)\]\[IMAGE:([^\]]+)\]/);
       if (sideBySideMatch) {
         if (currentText) {

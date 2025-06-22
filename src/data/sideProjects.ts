@@ -60,30 +60,9 @@ export const sideProjects: ProjectData[] = [
      "https://raw.githubusercontent.com/xmforxm98/Images/main/4.jpg",
      "https://raw.githubusercontent.com/xmforxm98/Images/main/5.jpg",
      "https://raw.githubusercontent.com/xmforxm98/Images/main/6.jpg",
-     "https://raw.githubusercontent.com/xmforxm98/Images/main/7.jpg",
-     "https://raw.githubusercontent.com/xmforxm98/Images/main/8.jpg",
-     "https://raw.githubusercontent.com/xmforxm98/Images/main/9.jpg",
-     "https://raw.githubusercontent.com/xmforxm98/Images/main/10.jpg",
-     "https://raw.githubusercontent.com/xmforxm98/Images/main/11.jpg",
-     "https://raw.githubusercontent.com/xmforxm98/Images/main/12.jpg",
-     "https://raw.githubusercontent.com/xmforxm98/Images/main/13.jpg",
-     "https://raw.githubusercontent.com/xmforxm98/Images/main/133.jpg",
-     "https://raw.githubusercontent.com/xmforxm98/Images/main/15.jpg",
     ],
     tags: ["Illustration", "Storytelling"],
     year: "2020"
-  },
-  {
-    id: "citroen11",
-    title: "Citroen Gesture Control",
-    description: "Smartwatch App",
-    imageUrl: "https://raw.githubusercontent.com/xmforxm98/Images/main/G1.png",
-    images: [
-      "https://raw.githubusercontent.com/xmforxm98/Images/main/G1.png",
-      "https://raw.githubusercontent.com/xmforxm98/Images/main/G2.png",
-    ],
-    tags: ["IoT", "UX", "Smartwatch"],
-    year: "2019"
   },
   {
     id: "eidos-cards",
