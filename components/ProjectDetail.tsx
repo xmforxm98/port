@@ -242,6 +242,27 @@ The PL@Y2 platform has become a benchmark for innovative ticketing solutions in 
 • **Mobile-First Design**: Optimized for mobile access with responsive interface
 • **Data-Driven Insights**: Based on 9M+ user behavior data from major Korean ticketing platforms
 • **Agency Integration**: Partnerships with major agencies for 3 live musical performances`;
+    } else if (project.id === "edios-fati") {
+      return `
+## Project Overview
+
+This is a long-term personal project where I handle planning, development, and marketing through vibe coding. It is currently in progress and undergoing App Store review. This project is dedicated to my personal learning across various domains, from data science to backend server development.
+
+## Challenges
+
+As a solo developer utilizing vibe coding with Cursor, I had to manage everything from algorithm design to library selection. Debugging with AI still has limitations, so foundational learning was often necessary.
+
+## Technology Stack
+
+*   Flutter
+*   Python
+*   Firebase
+*   Midjourney
+
+## Results & Impact
+
+Currently under app review on the App Store, the challenging phase is ongoing.
+`;
     } else if (project.id === "creative-portfolio") {
       return `
 PSA Integrated Vehicle Management and Smartwatch App: Proposing Next-Generation Mobility Experience
@@ -470,37 +491,7 @@ The B2B SaaS AI Solution successfully delivered enhanced data visibility and dec
 • **Enterprise Integration**: Seamless connection with existing business systems and data sources
 • **Scalable Architecture**: Platform designed to handle large-scale enterprise data processing requirements`;
     } else if (project.id === "edios-fati") {
-      return `
-Edios Fati: Comprehensive Fortune-Telling App
-
-Edios Fati is a comprehensive fortune-telling app that provides a wide range of services, including Saju, tarot cards, and more. This app was single-handedly developed by me through vibe coding.
-
-## 1. Project Vision
-
-The vision for Edios Fati was to create a one-stop platform for all fortune-telling needs. I wanted to provide users with a convenient and intuitive way to access a variety of divination methods in a single app.
-
-## 2. Development Process
-
-I was responsible for the entire development process, from planning and design to programming and deployment. The app was built using vibe coding, a development methodology that emphasizes intuition and creativity.
-
-### 2.1. Key Features
-
-*   **Comprehensive Services**: Edios Fati offers a wide range of fortune-telling services, including Saju, tarot cards, and more.
-*   **Intuitive UI/UX**: The app is designed to be easy to use, with a clean and intuitive interface.
-*   **Solo Development**: I single-handedly developed the entire app, from concept to completion.
-
-## 3. Key Achievements
-
-*   **Successful Launch**: The app was successfully launched on the app store and has received positive reviews from users.
-*   **Positive User Feedback**: Users have praised the app for its accuracy, ease of use, and wide range of features.
-*   **Personal Growth**: This project was a great opportunity for me to learn and grow as a developer.
-
-## Key Features
-
-*   **Comprehensive Fortune-Telling Platform**: Access a wide range of services, including Saju, tarot cards, and more.
-*   **Solo Developed**: Single-handedly developed by me through vibe coding.
-*   **Intuitive UI/UX**: A clean and intuitive interface for a seamless user experience.
-`;
+      return ``; // Remove the long description for Edios Fati
     }
     
     return `

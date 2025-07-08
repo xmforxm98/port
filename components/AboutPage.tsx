@@ -253,6 +253,20 @@ export function AboutPage() {
               </div>
             </div>
           </div>
+
+          {/* Awards & Recognition Images */}
+          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center', marginTop: '24px' }}>
+            <img 
+              src="/images/screenshot1.png" 
+              alt="Award 1"
+              style={{ maxWidth: '48%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
+            />
+            <img 
+              src="/images/screenshot2.png" 
+              alt="Award 2"
+              style={{ maxWidth: '48%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
+            />
+          </div>
         </motion.div>
 
         {/* Career Q&A Section */}

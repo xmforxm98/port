@@ -25,7 +25,7 @@ const mainProjects: ProjectData[] = [
     title: "Edios Fati: Vibe Coding Fortune & Tarot App",
     description:
       "A Flutter-based app for English speakers to explore daily fortune, tarot, and destiny mapping using AI, numerology, and Four Pillars (Saju) analysis. Designed, developed, and illustrated solo. Features daily-changing readings, AI-powered insights, and beautiful Midjourney visuals. Currently under app review.",
-    imageUrl: "/images/IMG_1410.PNG",
+    imageUrl: "/images/Frame 4248.png",
     images: [
       "/images/1.png",
       "/images/2.png",
@@ -44,7 +44,7 @@ const mainProjects: ProjectData[] = [
       "/images/IMG_1420.PNG",
       "/images/IMG_1421.PNG"
     ],
-    year: "2024",
+    year: "2025",
     tags: [
       "Flutter",
       "Python",
