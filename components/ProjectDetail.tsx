@@ -8,7 +8,6 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ProjectData, useProject } from "./ProjectContext";
 import { ProjectChatbot } from "../src/components/ProjectChatbot";
 import { useMediaQuery } from "./ui/use-mobile";
-import ProcessFlow from "../src/components/ui/ProcessFlow";
 import ProblemTable from "../src/components/ui/ProblemTable";
 
 interface ProjectDetailProps {
@@ -91,6 +90,25 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
         {
           url: "https://raw.githubusercontent.com/xmforxm98/Images/main/S4.png",
           alt: "Smart City Platform - Real-time Data Visualization"
+        }
+      ];
+    } else if (project.id === "edios-fati") {
+      return [
+        {
+          url: "https://raw.githubusercontent.com/xmforxm98/Images/main/E1.png",
+          alt: "Edios Fati - Main Screen"
+        },
+        {
+          url: "https://raw.githubusercontent.com/xmforxm98/Images/main/E2.png",
+          alt: "Edios Fati - Saju Result Screen"
+        },
+        {
+          url: "https://raw.githubusercontent.com/xmforxm98/Images/main/E3.png",
+          alt: "Edios Fati - Tarot Card Screen"
+        },
+        {
+          url: "https://raw.githubusercontent.com/xmforxm98/Images/main/E4.png",
+          alt: "Edios Fati - User Profile Screen"
         }
       ];
     }
@@ -451,6 +469,38 @@ The B2B SaaS AI Solution successfully delivered enhanced data visibility and dec
 • **Historical Data Tracking**: Long-term data storage with comparison and trend analysis capabilities
 • **Enterprise Integration**: Seamless connection with existing business systems and data sources
 • **Scalable Architecture**: Platform designed to handle large-scale enterprise data processing requirements`;
+    } else if (project.id === "edios-fati") {
+      return `
+Edios Fati: Comprehensive Fortune-Telling App
+
+Edios Fati is a comprehensive fortune-telling app that provides a wide range of services, including Saju, tarot cards, and more. This app was single-handedly developed by me through vibe coding.
+
+## 1. Project Vision
+
+The vision for Edios Fati was to create a one-stop platform for all fortune-telling needs. I wanted to provide users with a convenient and intuitive way to access a variety of divination methods in a single app.
+
+## 2. Development Process
+
+I was responsible for the entire development process, from planning and design to programming and deployment. The app was built using vibe coding, a development methodology that emphasizes intuition and creativity.
+
+### 2.1. Key Features
+
+*   **Comprehensive Services**: Edios Fati offers a wide range of fortune-telling services, including Saju, tarot cards, and more.
+*   **Intuitive UI/UX**: The app is designed to be easy to use, with a clean and intuitive interface.
+*   **Solo Development**: I single-handedly developed the entire app, from concept to completion.
+
+## 3. Key Achievements
+
+*   **Successful Launch**: The app was successfully launched on the app store and has received positive reviews from users.
+*   **Positive User Feedback**: Users have praised the app for its accuracy, ease of use, and wide range of features.
+*   **Personal Growth**: This project was a great opportunity for me to learn and grow as a developer.
+
+## Key Features
+
+*   **Comprehensive Fortune-Telling Platform**: Access a wide range of services, including Saju, tarot cards, and more.
+*   **Solo Developed**: Single-handedly developed by me through vibe coding.
+*   **Intuitive UI/UX**: A clean and intuitive interface for a seamless user experience.
+`;
     }
     
     return `
@@ -689,6 +739,27 @@ The ${project.title} project showcases my ability to tackle complex design probl
                   </p>
                 </Card>
               </>
+            ) : project.id === "edios-fati" ? (
+              <>
+                <Card className="p-4">
+                  <h3 className="font-medium mb-2">Comprehensive Platform</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Offers a wide range of services, including Saju and tarot cards.
+                  </p>
+                </Card>
+                <Card className="p-4">
+                  <h3 className="font-medium mb-2">Solo Development</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Single-handedly developed by me through vibe coding.
+                  </p>
+                </Card>
+                <Card className="p-4">
+                  <h3 className="font-medium mb-2">Intuitive UI/UX</h3>
+                  <p className="text-sm text-muted-foreground">
+                    A clean and intuitive interface for a seamless user experience.
+                  </p>
+                </Card>
+              </>
             ) : (
               <>
                 <Card className="p-4">
@@ -713,451 +784,33 @@ The ${project.title} project showcases my ability to tackle complex design probl
             )}
           </motion.div>
 
+          {/* Edios Fati: Show app_structure.png image below overview/description */}
+          {project.id === "edios-fati" && (
+            <div style={{ margin: "40px 0", display: 'flex', justifyContent: 'center', width: '100%' }}>
+              <img 
+                src="/images/app_structure.png" 
+                alt="Edios Fati App Structure Diagram"
+                style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                  display: 'block',
+                  objectFit: 'contain',
+                  border: '1px solid #eee', // Optional: add a light border like the original diagram
+                  borderRadius: '8px',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.1)' // Optional: add a subtle shadow
+                }}
+              />
+            </div>
+          )}
+
           {/* Project content */}
           <motion.div 
-            className="max-w-none mb-8"
+            className="prose prose-invert max-w-none mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.45 }}
           >
-            <div className="whitespace-pre-wrap text-base leading-relaxed text-foreground space-y-4">
-              {projectContent.split('\n\n').map((paragraph, index) => {
-                if (paragraph.startsWith('## ')) {
-                  const heading = paragraph.replace('## ', '');
-                  // Add Process Flow before UX Research section for PLAY2 project
-                  if (project.id === "play2-project" && heading === '1. UX Research') {
-                    return (
-                      <div key={index}>
-                        <motion.div 
-                          className="mb-8"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: 0.3 }}
-                        >
-                          <ProcessFlow />
-                        </motion.div>
-                        <h2 className="text-2xl font-bold mt-8 mb-4">
-                          {heading}
-                        </h2>
-                      </div>
-                    );
-                  }
-                  // Add Problem Table after Problem Definition heading for PLAY2 project
-                  if (project.id === "play2-project" && heading === '2. Problem Definition') {
-                    return (
-                      <div key={index}>
-                        <h2 className="text-2xl font-bold mt-8 mb-4">
-                          {heading}
-                        </h2>
-                      </div>
-                    );
-                  }
-                  return (
-                    <h2 key={index} className="text-2xl font-bold mt-8 mb-4">
-                      {heading}
-                    </h2>
-                  );
-                }
-                if (paragraph.startsWith('### ')) {
-                  return (
-                    <h3 key={index} className="text-xl font-semibold mt-6 mb-3">
-                      {paragraph.replace('### ', '')}
-                    </h3>
-                  );
-                }
-                if (paragraph.startsWith('• ')) {
-                  const listItems = paragraph.split('\n').filter(item => item.startsWith('• '));
-                  return (
-                    <ul key={index} className="list-disc list-inside space-y-2 ml-4">
-                      {listItems.map((item, itemIndex) => (
-                        <li key={itemIndex}>{renderTextWithBold(item.replace('• ', ''))}</li>
-                      ))}
-                    </ul>
-                  );
-                }
-                // Handle PLAY2 project specific content with images
-                if (project.id === "play2-project") {
-                  // Add image after UX Research section
-                                     if (paragraph.includes("300,000 won per month")) {
-                     return (
-                       <div key={index}>
-                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
-                        <motion.div 
-                          className="my-6 rounded-lg overflow-hidden"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: 0.3 }}
-                        >
-                          <ImageWithFallback
-                            src="/images/play2.png"
-                            alt="PLAY2 User Research Data Analysis"
-                            className="w-full h-auto object-cover"
-                          />
-                        </motion.div>
-                      </div>
-                    );
-                  }
-                  
-                  // Add problem table after Problem Definition
-                                     if (paragraph.includes("The causes of the ticketing experience")) {
-                     return (
-                       <div key={index}>
-                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
-                        <motion.div 
-                          className="my-8"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: 0.4 }}
-                        >
-                          <ProblemTable />
-                        </motion.div>
-                      </div>
-                    );
-                  }
-                  
-                  // Add image after Solution intro
-                                     if (paragraph.includes("design language of the existing PL@Y2")) {
-                     return (
-                       <div key={index}>
-                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
-                        <motion.div 
-                          className="my-6 rounded-lg overflow-hidden"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: 0.3 }}
-                        >
-                          <ImageWithFallback
-                            src="/images/play1.png"
-                            alt="PLAY2 Solution Overview"
-                            className="w-full h-auto object-cover"
-                          />
-                        </motion.div>
-                      </div>
-                    );
-                  }
-                  
-                  // Add images after Pre Open solution
-                                     if (paragraph.includes("casting-first selection")) {
-                     return (
-                       <div key={index}>
-                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
-                        <motion.div 
-                          className="my-6 grid grid-cols-1 md:grid-cols-2 gap-4"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: 0.3 }}
-                        >
-                          <div className="rounded-lg overflow-hidden">
-                            <ImageWithFallback
-                              src="/images/play4.png"
-                              alt="PLAY2 Pre-Open Feature"
-                              className="w-full h-auto object-cover"
-                            />
-                          </div>
-                          <div className="rounded-lg overflow-hidden">
-                            <ImageWithFallback
-                              src="/images/play3.png"
-                              alt="PLAY2 Casting Selection"
-                              className="w-full h-auto object-cover"
-                            />
-                          </div>
-                        </motion.div>
-                      </div>
-                    );
-                  }
-                  
-                  // Add image after Real Time Information solution
-                                     if (paragraph.includes("rounds they want to see")) {
-                     return (
-                       <div key={index}>
-                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
-                        <motion.div 
-                          className="my-6 rounded-lg overflow-hidden"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: 0.3 }}
-                        >
-                          <ImageWithFallback
-                            src="/images/play5.png"
-                            alt="PLAY2 Real-time Information"
-                            className="w-full h-auto object-cover"
-                          />
-                        </motion.div>
-                      </div>
-                    );
-                  }
-                  
-                  // Add images after One Touch Payment solution
-                                     if (paragraph.includes("payment fails")) {
-                     return (
-                       <div key={index}>
-                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
-                        <motion.div 
-                          className="my-6 grid grid-cols-1 md:grid-cols-2 gap-4"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: 0.3 }}
-                        >
-                          <div className="rounded-lg overflow-hidden">
-                            <ImageWithFallback
-                              src="/images/play6.png"
-                              alt="PLAY2 One Touch Payment"
-                              className="w-full h-auto object-cover"
-                            />
-                          </div>
-                          <div className="rounded-lg overflow-hidden">
-                            <ImageWithFallback
-                              src="/images/play2.png"
-                              alt="PLAY2 Payment Flow"
-                              className="w-full h-auto object-cover"
-                            />
-                          </div>
-                        </motion.div>
-                      </div>
-                    );
-                  }
-                }
-                
-                // Handle M.A.D.E. project specific content with images
-                if (project.id === "made-project") {
-                  // Add image after Project Architecture section
-                                     if (paragraph.includes("data science team and the web team")) {
-                     return (
-                       <div key={index}>
-                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
-                        <motion.div 
-                          className="my-6 rounded-lg overflow-hidden"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: 0.3 }}
-                        >
-                          <ImageWithFallback
-                            src="/images/made1.png"
-                            alt="M.A.D.E. Project Architecture"
-                            className="w-full h-auto object-cover"
-                          />
-                        </motion.div>
-                      </div>
-                    );
-                  }
-                  
-                  // Add image after IA Information Structure Chart section
-                                     if (paragraph.includes("perspective of the two users")) {
-                     return (
-                       <div key={index}>
-                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
-                        <motion.div 
-                          className="my-6 rounded-lg overflow-hidden"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: 0.3 }}
-                        >
-                          <ImageWithFallback
-                            src="/images/made3.png"
-                            alt="M.A.D.E. IA Information Structure Chart"
-                            className="w-full h-auto object-cover"
-                          />
-                        </motion.div>
-                      </div>
-                    );
-                  }
-                  
-                  // Add image after Screen Design section
-                                     if (paragraph.includes("aligning it with web requirements in real time")) {
-                     return (
-                       <div key={index}>
-                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
-                        <motion.div 
-                          className="my-6 rounded-lg overflow-hidden"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: 0.3 }}
-                        >
-                          <ImageWithFallback
-                            src="/images/made5.png"
-                            alt="M.A.D.E. Screen Design and Design System"
-                            className="w-full h-auto object-cover"
-                          />
-                        </motion.div>
-                      </div>
-                    );
-                  }
-                  
-                  // Add image after Solution Result section
-                                     if (paragraph.includes("conduct marketing, and verify performance")) {
-                     return (
-                       <div key={index}>
-                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
-                        <motion.div 
-                          className="my-6 rounded-lg overflow-hidden"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: 0.3 }}
-                        >
-                          <ImageWithFallback
-                            src="/images/made6.png"
-                            alt="M.A.D.E. Solution Result"
-                            className="w-full h-auto object-cover"
-                          />
-                        </motion.div>
-                      </div>
-                    );
-                  }
-                }
-                
-                // Handle B2B SaaS project specific content with images
-                if (project.id === "b2b-saas-project") {
-                  // Add image after Real-time Data Dashboard section
-                                     if (paragraph.includes("most current information available")) {
-                     return (
-                       <div key={index}>
-                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
-                        <motion.div 
-                          className="my-6 rounded-lg overflow-hidden"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: 0.3 }}
-                        >
-                          <ImageWithFallback
-                            src="/images/dataanalytics2.png"
-                            alt="B2B SaaS Real-time Data Dashboard"
-                            className="w-full h-auto object-cover"
-                          />
-                        </motion.div>
-                      </div>
-                    );
-                  }
-                  
-                  // Add image after Insight Derivation Tools section
-                                     if (paragraph.includes("drive strategic planning")) {
-                     return (
-                       <div key={index}>
-                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
-                        <motion.div 
-                          className="my-6 rounded-lg overflow-hidden"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: 0.3 }}
-                        >
-                          <ImageWithFallback
-                            src="/images/dataanalytics3.png"
-                            alt="B2B SaaS Insight Derivation Tools"
-                            className="w-full h-auto object-cover"
-                          />
-                        </motion.div>
-                      </div>
-                    );
-                  }
-                }
-                
-                // Handle HMI - SKODA Vision E Concept project specific content with images  
-                if (project.id === "smart-city-platform") {
-                  // Add images after Motion Design and Brand Integration section
-                                     if (paragraph.includes("sophisticated and modern aesthetic")) {
-                     return (
-                       <div key={index}>
-                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
-                        <motion.div 
-                          className="my-6 space-y-4"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: 0.3 }}
-                        >
-                          <div className="rounded-lg overflow-hidden">
-                            <ImageWithFallback
-                              src="/images/skodavision1.png"
-                              alt="SKODA Vision E Concept - HMI Design"
-                              className="w-full h-auto object-cover"
-                            />
-                          </div>
-                          <div className="rounded-lg overflow-hidden">
-                            <ImageWithFallback
-                              src="/images/skodavision4.png"
-                              alt="SKODA Vision E Concept - Interface Design"
-                              className="w-full h-auto object-cover"
-                            />
-                          </div>
-                        </motion.div>
-                      </div>
-                    );
-                  }
-                  
-                  // Add image after Location-Based Tourism Services section
-                                     if (paragraph.includes("opportunity for discovery and exploration")) {
-                     return (
-                       <div key={index}>
-                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
-                        <motion.div 
-                          className="my-6 rounded-lg overflow-hidden"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: 0.3 }}
-                        >
-                          <ImageWithFallback
-                            src="/images/skodavision5.png"
-                            alt="SKODA Vision E Concept - Touring On Trip Service"
-                            className="w-full h-auto object-cover"
-                          />
-                        </motion.div>
-                      </div>
-                    );
-                  }
-                }
-                
-                // Handle PSA project specific content with images
-                if (project.id === "creative-portfolio") {
-                  // Add all 4 images after outcome section
-                                     if (paragraph.includes("innovative, user-centered design solutions")) {
-                     return (
-                       <div key={index}>
-                         <p className="mb-4">{renderTextWithBold(paragraph)}</p>
-                        <motion.div 
-                          className="my-6 space-y-6"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: 0.3 }}
-                        >
-                          <div className="rounded-lg overflow-hidden">
-                            <ImageWithFallback
-                              src="/images/psa1.png"
-                              alt="PSA Smartwatch and Mobile App Interface Design"
-                              className="w-full h-auto object-cover"
-                            />
-                          </div>
-                          <div className="rounded-lg overflow-hidden">
-                            <ImageWithFallback
-                              src="/images/psa2.png"
-                              alt="PSA Login Interface and Vehicle Selection"
-                              className="w-full h-auto object-cover"
-                            />
-                          </div>
-                          <div className="rounded-lg overflow-hidden">
-                            <ImageWithFallback
-                              src="/images/psa3.png"
-                              alt="PSA Integrated Smartwatch and Mobile Experience"
-                              className="w-full h-auto object-cover"
-                            />
-                          </div>
-                          <div className="rounded-lg overflow-hidden">
-                            <ImageWithFallback
-                              src="/images/psa4.png"
-                              alt="PSA Gesture Control and Autonomous Parking Features"
-                              className="w-full h-auto object-cover"
-                            />
-                          </div>
-                        </motion.div>
-                      </div>
-                    );
-                  }
-                }
-                
-                return (
-                  <p key={index} className="mb-4">
-                    {renderTextWithBold(paragraph)}
-                  </p>
-                );
-              })}
-            </div>
+            {renderTextWithBold(getProjectContent())}
           </motion.div>
 
           {/* Call to action */}

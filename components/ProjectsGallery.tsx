@@ -20,6 +20,45 @@ interface ProjectsGalleryProps {
 }
 
 const mainProjects: ProjectData[] = [
+  {
+    id: "edios-fati",
+    title: "Edios Fati: Vibe Coding Fortune & Tarot App",
+    description:
+      "A Flutter-based app for English speakers to explore daily fortune, tarot, and destiny mapping using AI, numerology, and Four Pillars (Saju) analysis. Designed, developed, and illustrated solo. Features daily-changing readings, AI-powered insights, and beautiful Midjourney visuals. Currently under app review.",
+    imageUrl: "/images/IMG_1410.PNG",
+    images: [
+      "/images/1.png",
+      "/images/2.png",
+      "/images/3.png",
+      "/images/4.png",
+      "/images/IMG_1410.PNG",
+      "/images/IMG_1411.PNG",
+      "/images/IMG_1412.PNG",
+      "/images/IMG_1413.PNG",
+      "/images/IMG_1414.PNG",
+      "/images/IMG_1415.PNG",
+      "/images/IMG_1416.PNG",
+      "/images/IMG_1417.PNG",
+      "/images/IMG_1418.PNG",
+      "/images/IMG_1419.PNG",
+      "/images/IMG_1420.PNG",
+      "/images/IMG_1421.PNG"
+    ],
+    year: "2024",
+    tags: [
+      "Flutter",
+      "Python",
+      "Firebase",
+      "AI",
+      "Numerology",
+      "Saju",
+      "Tarot",
+      "Midjourney",
+      "Solo Project",
+      "App Review"
+    ],
+    featured: true,
+  },
         {
           id: "play2-project",
           title: "PL@Y2",
